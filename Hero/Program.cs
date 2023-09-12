@@ -14,10 +14,11 @@ class Program
         archer.Equipment[Slot.Weapon] = commonBow;
         Console.WriteLine(archer.ValidWeaponTypes);
 
-        if (archer.ValidWeaponTypes.Split(',').Contains("Bow"))
+        if (archer.ValidWeaponTypes.Split(',').Select(type => type.Trim()).Contains(WeaponType.Bow.ToString()))
         {
             Console.WriteLine("hei");
         }
+
 
 
 
