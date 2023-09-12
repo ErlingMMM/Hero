@@ -23,7 +23,7 @@ namespace Hero.hero
             levelUpService.LevelUp(LevelAttributes, ArcherStrengthIncrease, ArcherDexterityIncrease, ArcherIntelligenceIncrease);
         }
 
-        public void Display()
+        public override void Display()
         {
             displayService.DisplayHeroInfo(Name, "Archer", Level, LevelAttributes);
         }
