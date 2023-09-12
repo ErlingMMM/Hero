@@ -1,10 +1,13 @@
 ﻿using Hero.Attributes;
+using Hero.Services;
 
 
 namespace Hero.hero
 {
     public class Archer : Hero
     {
+        private readonly DisplayService displayService = new DisplayService();
+
 
         public Archer(string name) : base(name)
         {
@@ -23,12 +26,7 @@ namespace Hero.hero
 
         public void Display()
         {
-            Console.WriteLine($"Name: {Name}");
-            Console.WriteLine($"Class: Archer");
-            Console.WriteLine($"Level: {Level}");
-            Console.WriteLine($"Strength: {LevelAttributes.Strength}");
-            Console.WriteLine($"Dexterity: {LevelAttributes.Dexterity}");
-            Console.WriteLine($"Intelligence: {LevelAttributes.Intelligence}");
+            displayService.DisplayHeroInfo(Name, "Archer", Level, LevelAttributes);
         }
     }
 }
