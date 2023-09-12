@@ -30,7 +30,5 @@ namespace Hero.hero
             };
 
         }
-
-
     }
 }
