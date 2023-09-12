@@ -1,5 +1,4 @@
 ﻿using Hero.Attributes;
-using System;
 
 namespace Hero.Services
 {
