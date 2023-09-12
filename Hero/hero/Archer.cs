@@ -7,6 +7,7 @@ namespace Hero.hero
     public class Archer : Hero
     {
         private readonly DisplayService displayService = new DisplayService();
+        private readonly DisplayEquipmentService displayEquipmentService = new DisplayEquipmentService();
         private readonly LevelUpService levelUpService = new LevelUpService();
 
 
@@ -30,25 +31,13 @@ namespace Hero.hero
             displayService.DisplayHeroInfo(Name, "Archer", Level, LevelAttributes);
         }
 
-        public void EquipWeapon(Weapon weapon)
-        {
-            Equipment["Weapon"] = weapon; 
-        }
+      
 
         public void DisplayEquipment()
         {
-            Console.WriteLine($"Equipment for {Name} (Level {Level}):");
-            var equippedWeapon = Equipment["Weapon"];
-            if (equippedWeapon != null)
-            {
-                Console.WriteLine($"Slot: Weapon");
-                Console.WriteLine($"Type: Weapon");
-                Console.WriteLine($"Name: {equippedWeapon.Name}");
-                Console.WriteLine($"Required Level: {equippedWeapon.RequiredLevel}");
-              
-            }
 
-            Console.WriteLine();
+            displayEquipmentService.DisplayEquipment(Name, Level, Equipment);
+
         }
     }
 }
