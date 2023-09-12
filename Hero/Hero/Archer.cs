@@ -33,7 +33,7 @@ namespace Hero.hero
 
       
 
-        public void DisplayEquipment()
+        public override void DisplayEquipment()
         {
 
             displayEquipmentService.DisplayEquipment(Name, Level, Equipment);

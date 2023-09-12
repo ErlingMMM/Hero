@@ -16,6 +16,7 @@ namespace Hero.hero
 
         public abstract void LevelUp();
         public abstract void Display();
+        public abstract void DisplayEquipment();
 
         public Hero(string name)
         {
