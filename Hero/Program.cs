@@ -1,6 +1,7 @@
 ﻿using Hero.Equipment;
 using Hero.hero;
 using System;
+using System.Linq;
 
 class Program
 {
@@ -11,7 +12,16 @@ class Program
        
 
         archer.Equipment[Slot.Weapon] = commonBow;
-       
+        Console.WriteLine(archer.ValidWeaponTypes);
+
+        if (archer.ValidWeaponTypes.Split(',').Contains("Bow"))
+        {
+            Console.WriteLine("hei");
+        }
+
+
+
+
 
         archer.LevelUp();
 

@@ -11,6 +11,8 @@ namespace Hero.hero
         protected string Name;
         protected int Level;
         protected HeroAttribute LevelAttributes;
+
+        public string ValidWeaponTypes;
         public Dictionary<Slot, Item> Equipment;
         public Slot Slot { get; }
 
