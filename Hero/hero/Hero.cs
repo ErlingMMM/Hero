@@ -20,7 +20,7 @@ namespace Hero.hero
         {
             Name = name;
             Level = 1;
-            LevelAttributes = new HeroAttribute(1, 3, 4);
+            LevelAttributes = new HeroAttribute();
 
 
         }
