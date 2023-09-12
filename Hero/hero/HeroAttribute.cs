@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hero.hero
 {
-    internal class Archer
+    internal class HeroAttribute
     {
-      
     }
 }
