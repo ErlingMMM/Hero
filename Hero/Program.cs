@@ -1,13 +1,18 @@
-﻿using Hero.hero;
+﻿using Hero.Equipment;
+using Hero.hero;
 using System;
 
 class Program
 {
     static void Main()
     {
-        Archer archer = new Archer("Arch1");
+        Archer archer = new Archer("Robin Hood");
+        Weapon commonBow = new Weapon("Common Bow", 1, "Weapon", WeaponType.Bow);
+
+        
+        archer.EquipWeapon(commonBow);
         archer.LevelUp();
-        archer.LevelUp();
+     
         archer.Display();
     }
 }

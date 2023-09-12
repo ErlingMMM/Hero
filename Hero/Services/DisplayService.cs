@@ -12,6 +12,8 @@ namespace Hero.Services
             Console.WriteLine($"Strength: {attributes.Strength}");
             Console.WriteLine($"Dexterity: {attributes.Dexterity}");
             Console.WriteLine($"Intelligence: {attributes.Intelligence}");
+            
+            
         }
     }
 }
