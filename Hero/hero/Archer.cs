@@ -1,11 +1,5 @@
 ﻿using Hero.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+
 
 namespace Hero.hero
 {
@@ -18,6 +12,11 @@ namespace Hero.hero
 
         }
 
+        public override void LevelUp()
+        {
+            int levelStrengt = LevelAttributes.Strength + 2;
+            LevelAttributes = new HeroAttribute(strength: levelStrengt, dexterity: 7, intelligence: 1);
+        }
 
         public void Display()
         {
