@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hero.hero
+namespace Hero.Attributes
 {
-    public class Swashbucker : Hero
+    internal class Weapon
     {
-
-        public Swashbucker(string name) : base(name)
-        {
-        }
     }
 }

@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Hero.hero
 {
-    internal class Archer
+    public class Archer : Hero
     {
-      
+
+        public Archer(string name) : base(name)
+        {
+        }
     }
 }
