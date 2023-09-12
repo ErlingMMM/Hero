@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hero.Attributes
+namespace Hero.Equipment
 {
     internal class Armor
     {

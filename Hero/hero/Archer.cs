@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Hero.hero
 {
@@ -12,12 +14,19 @@ namespace Hero.hero
 
         public Archer(string name) : base(name)
         {
-            LevelAttributes = new HeroAttribute
-            {
-                Strength = 1,
-                Dexterity = 7,
-                Intelligence = 1 
-            };
+            LevelAttributes = new HeroAttribute(strength: 1, dexterity: 7, intelligence: 1);
+
+        }
+
+
+        public void Display()
+        {
+            Console.WriteLine($"Name: {Name}");
+            Console.WriteLine($"Class: Archer");
+            Console.WriteLine($"Level: {Level}");
+            Console.WriteLine($"Strength: {LevelAttributes.Strength}");
+            Console.WriteLine($"Dexterity: {LevelAttributes.Dexterity}");
+            Console.WriteLine($"Intelligence: {LevelAttributes.Intelligence}");
         }
     }
 }

@@ -12,5 +12,13 @@ namespace Hero.Attributes
         public int Dexterity { get; set; }
         public int Intelligence { get; set; }
 
+
+        public HeroAttribute(int strength = 0, int dexterity = 0, int intelligence = 0)
+        {
+            Strength = strength;
+            Dexterity = dexterity;
+            Intelligence = intelligence;
+        }
+
     }
 }
