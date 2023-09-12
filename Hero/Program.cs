@@ -9,10 +9,11 @@ class Program
         Archer archer = new Archer("Robin Hood");
         Weapon commonBow = new Weapon("Common Bow", 1, "Weapon", WeaponType.Bow);
 
-        
-        archer.EquipWeapon(commonBow);
+        archer.Equipment["Weapon"] = commonBow; 
+
         archer.LevelUp();
-     
+
         archer.Display();
+        archer.DisplayEquipment(); 
     }
 }

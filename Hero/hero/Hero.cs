@@ -9,12 +9,11 @@ namespace Hero.hero
         protected string Name;
         protected int Level;
         protected HeroAttribute LevelAttributes;
-        protected List<Weapon> EquippedWeapons; 
-       
+        public Dictionary<string, Item> Equipment;
+
 
         public abstract void LevelUp();
         public abstract void Display();
-        public abstract void EquipWeapon(Weapon weapon); 
        
 
         public Hero(string name)
@@ -22,8 +21,16 @@ namespace Hero.hero
             Name = name;
             Level = 1;
             LevelAttributes = new HeroAttribute();
-            EquippedWeapons = new List<Weapon>();
-           
+            Equipment = new Dictionary<string, Item>
+            {
+                { "Weapon", null }, 
+                { "Head", null },
+                { "Body", null },
+                { "Legs", null }
+            };
+
         }
+
+
     }
 }

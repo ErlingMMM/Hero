@@ -2,9 +2,9 @@
 {
     public abstract class Item
     {
-        protected string Name;
-        protected int RequiredLevel;
-        protected string Slot;
+        public string Name;
+        public int RequiredLevel;
+        public string Slot;
 
         protected Item(string name, int requiredLevel, string slot)
         {
