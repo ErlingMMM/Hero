@@ -5,13 +5,9 @@ using System.Collections.Generic;
 
 namespace Hero.hero
 {
-    public enum Slot
-    {
-        Weapon,
-        Head,
-        Body,
-        Legs
-    }
+
+    
+ 
 
     public abstract class Hero
     {
@@ -19,6 +15,7 @@ namespace Hero.hero
         protected int Level;
         protected HeroAttribute LevelAttributes;
         public Dictionary<Slot, Item> Equipment;
+        public Slot Slot { get; }
 
         public abstract void LevelUp();
         public abstract void Display();
