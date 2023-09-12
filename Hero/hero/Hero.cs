@@ -6,9 +6,6 @@ using System.Collections.Generic;
 namespace Hero.hero
 {
 
-    
- 
-
     public abstract class Hero
     {
         protected string Name;
