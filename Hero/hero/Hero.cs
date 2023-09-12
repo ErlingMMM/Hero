@@ -13,7 +13,7 @@ namespace Hero.hero
         protected string Name;
         protected int Level;
         protected HeroAttribute LevelAttributes;
-        public abstract void LevelUp();
+        public abstract void  LevelUp();
 
 
 

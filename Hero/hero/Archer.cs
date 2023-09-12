@@ -14,6 +14,7 @@ namespace Hero.hero
 
         public override void LevelUp()
         {
+            Level++;
             int levelStrengt = LevelAttributes.Strength + 1;
             int levelDexterity = LevelAttributes.Dexterity + 5;
             int levelIntelligence = LevelAttributes.Intelligence + 1;
