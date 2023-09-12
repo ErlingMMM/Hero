@@ -7,6 +7,7 @@ class Program
     {
         Archer archer = new Archer("Arch1");
         archer.LevelUp();
+        archer.LevelUp();
         archer.Display();
     }
 }
