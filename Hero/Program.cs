@@ -9,19 +9,8 @@ class Program
     {
         Archer archer = new Archer("Robin Hood");
         Weapon commonBow = new Weapon("Common Bow", 1, "Weapon", WeaponType.Bow);
-       
 
-        archer.Equipment[Slot.Weapon] = commonBow;
-        Console.WriteLine(archer.ValidWeaponTypes);
-
-        if (archer.ValidWeaponTypes.Split(',').Select(type => type.Trim()).Contains(WeaponType.Bow.ToString()))
-        {
-            Console.WriteLine("hei");
-        }
-
-
-
-
+        archer.EquipWeapon(commonBow);
 
 
         archer.LevelUp();

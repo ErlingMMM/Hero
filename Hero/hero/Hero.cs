@@ -1,7 +1,6 @@
 ﻿using Hero.Attributes;
 using Hero.Equipment;
-using System;
-using System.Collections.Generic;
+
 
 namespace Hero.hero
 {
@@ -9,16 +8,19 @@ namespace Hero.hero
     public abstract class Hero
     {
         protected string Name;
-        protected int Level;
         protected HeroAttribute LevelAttributes;
+        protected string ValidWeaponTypes { get; set; }
 
-        public string ValidWeaponTypes;
+
+        public int Level;
+        //public string ValidWeaponTypes;
         public Dictionary<Slot, Item> Equipment;
         public Slot Slot { get; }
 
         public abstract void LevelUp();
         public abstract void Display();
         public abstract void DisplayEquipment();
+        public abstract void EquipWeapon(Weapon weapon);
 
         public Hero(string name)
         {
