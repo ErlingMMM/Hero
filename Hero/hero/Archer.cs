@@ -6,7 +6,7 @@ namespace Hero.hero
 {
     public class Archer : Hero
     {
-        private readonly DisplayService displayService = new DisplayService();
+        private readonly DisplayHeroService displayHeroService = new DisplayHeroService();
         private readonly DisplayEquipmentService displayEquipmentService = new DisplayEquipmentService();
         private readonly LevelUpService levelUpService = new LevelUpService();
         private readonly EquipWeaponService equipService = new EquipWeaponService();
@@ -29,8 +29,10 @@ namespace Hero.hero
 
         public override void Display()
         {
-            displayService.DisplayHeroInfo(Name, "Archer", Level, LevelAttributes);
+            string heroInfo = displayHeroService.DisplayHeroInfo(Name, "Archer", Level, LevelAttributes);
+            Console.WriteLine(heroInfo);
         }
+
 
         public override void DisplayEquipment()
         {

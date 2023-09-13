@@ -1,6 +1,4 @@
 ﻿using Hero.Equipment;
-using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace Hero.Services
