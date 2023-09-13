@@ -6,13 +6,15 @@ namespace Hero.Equipment
     {
 
         public ArmorType ArmorType { get; }
-        public Armor(string name, int requiredLevel, string slot, ArmorType armorType) : base(name, requiredLevel, slot)
+        public int ArmorAttribute { get; }
+
+        public Armor(string name, int requiredLevel, string slot, ArmorType armorType, int armorAttribute) : base(name, requiredLevel, slot)
         {
             Name = name;
             RequiredLevel = requiredLevel;
             Slot = slot;
             ArmorType = armorType;
-
+            ArmorAttribute = armorAttribute;
         }
     }
 }
