@@ -1,6 +1,6 @@
 ﻿using Hero.Attributes;
-using Hero.Services;
 using Hero.Equipment;
+using Hero.Services;
 
 namespace Hero.hero
 {
@@ -10,7 +10,6 @@ namespace Hero.hero
         private readonly DisplayEquipmentService displayEquipmentService = new DisplayEquipmentService();
         private readonly LevelUpService levelUpService = new LevelUpService();
         private readonly EquipWeaponService equipService = new EquipWeaponService();
-
 
         private const int ArcherStrengthIncrease = 1;
         private const int ArcherDexterityIncrease = 5;
@@ -33,23 +32,20 @@ namespace Hero.hero
             displayService.DisplayHeroInfo(Name, "Archer", Level, LevelAttributes);
         }
 
-      
-
         public override void DisplayEquipment()
         {
-
-            displayEquipmentService.DisplayEquipment(Name, Level, Equipment);
-
+            string equipmentInfo = displayEquipmentService.DisplayEquipment(Name, Level, Equipment);
+            Console.WriteLine(equipmentInfo);
         }
-
-
 
         public override void EquipWeapon(Weapon weapon)
         {
             bool equipSuccess = equipService.Equipping(weapon, ValidWeaponTypes, Level, Equipment);
-
         }
 
+        public override void Damage()
+        {
+
+        }
     }
 }
-

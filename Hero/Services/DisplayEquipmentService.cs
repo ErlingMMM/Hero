@@ -1,15 +1,16 @@
 ﻿using Hero.Equipment;
-using Hero.hero;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Hero.Services
 {
     public class DisplayEquipmentService
     {
-        public void DisplayEquipment(string name, int level, Dictionary<Slot, Item> equipment)
+        public string DisplayEquipment(string name, int level, Dictionary<Slot, Item> equipment)
         {
-            Console.WriteLine($"Equipment for {name} (Level {level}):");
+            StringBuilder output = new StringBuilder();
+            output.AppendLine($"Equipment for {name} (Level {level}):");
 
             foreach (Slot slot in Enum.GetValues(typeof(Slot)))
             {
@@ -17,13 +18,15 @@ namespace Hero.Services
 
                 if (equippedItem != null)
                 {
-                    Console.WriteLine($"Slot: {slot}");
-                    Console.WriteLine($"Type: {equippedItem.Slot}");
-                    Console.WriteLine($"Name: {equippedItem.Name}");
-                    Console.WriteLine($"Required Level: {equippedItem.RequiredLevel}");
-                    Console.WriteLine();
+                    output.AppendLine($"Slot: {slot}");
+                    output.AppendLine($"Type: {equippedItem.Slot}");
+                    output.AppendLine($"Name: {equippedItem.Name}");
+                    output.AppendLine($"Required Level: {equippedItem.RequiredLevel}");
+                    output.AppendLine();
                 }
             }
+
+            return output.ToString();
         }
     }
 }

@@ -13,13 +13,14 @@ namespace Hero.hero
 
 
         public int Level;
-        //public string ValidWeaponTypes;
         public Dictionary<Slot, Item> Equipment;
         public Slot Slot { get; }
+        
 
         public abstract void LevelUp();
         public abstract void Display();
         public abstract void DisplayEquipment();
+        public abstract void Damage();
         public abstract void EquipWeapon(Weapon weapon);
 
         public Hero(string name)
