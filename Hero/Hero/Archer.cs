@@ -35,7 +35,7 @@ namespace Hero.hero
         }
 
 
-        public override HeroAttribute AttributeIncrease(int StrengthIncrease, int DexterityIncrease, int IntelligenceIncrease)
+        public override HeroAttribute TotalAttributes(int StrengthIncrease, int DexterityIncrease, int IntelligenceIncrease)
         {
             return increaseAttributes.IncreaseAttributes(LevelAttributes, StrengthIncrease, DexterityIncrease, IntelligenceIncrease);
         }

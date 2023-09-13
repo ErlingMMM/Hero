@@ -19,7 +19,7 @@ namespace Hero.hero
 
 
         public abstract HeroAttribute LevelUp();
-        public abstract HeroAttribute AttributeIncrease(int StrengthIncrease, int DexterityIncrease, int IntelligenceIncrease);
+        public abstract HeroAttribute  TotalAttributes(int StrengthIncrease, int DexterityIncrease, int IntelligenceIncrease);
         public abstract void Display();
         public abstract void DisplayEquipment();
         public abstract int Damage();
