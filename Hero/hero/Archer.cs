@@ -64,8 +64,6 @@ namespace Hero.hero
             double damage = damageWeapon * (1 + (LevelAttributes.Dexterity / 100.0));
 
             return (int)damage;
-
-
         }
     }
 }
