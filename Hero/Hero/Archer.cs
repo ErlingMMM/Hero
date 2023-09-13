@@ -9,19 +9,22 @@ namespace Hero.hero
         private readonly DisplayHeroService displayHeroService = new DisplayHeroService();
         private readonly DisplayEquipmentService displayEquipmentService = new DisplayEquipmentService();
         private readonly LevelUpService levelUpService = new LevelUpService();
-        private readonly EquipWeaponService equipService = new EquipWeaponService();
+        private readonly EquipWeaponService equipWeaponService = new EquipWeaponService();
+        private readonly EquipArmorService equipArmorService = new EquipArmorService();
 
         private const int ArcherStrengthIncrease = 1;
         private const int ArcherDexterityIncrease = 5;
         private const int ArcherIntelligenceIncrease = 1;
 
         private Weapon equippedWeapon;
+        private Armor equippedArmor;
 
 
         public Archer(string name) : base(name)
         {
             LevelAttributes = new HeroAttribute(strength: 1, dexterity: 7, intelligence: 1);
             ValidWeaponTypes = "Bow";
+            ValidArmorTypes = " Leather, Mail";
         }
 
         public override void LevelUp()
@@ -45,13 +48,25 @@ namespace Hero.hero
 
         public override void EquipWeapon(Weapon weapon)
         {
-            bool equipSuccess = equipService.Equipping(weapon, ValidWeaponTypes, Level, Equipment);
+            bool equipSuccess = equipWeaponService.Equipping(weapon, ValidWeaponTypes, Level, Equipment);
 
             if (equipSuccess)
             {
                 equippedWeapon = weapon;
             }
         }
+
+        public override void EquipArmor(Armor armor)
+        {
+            bool equipSuccess = equipArmorService.Equipping(armor, ValidArmorTypes, Level, Equipment);
+
+            if (equipSuccess)
+            {
+                equippedArmor = armor;
+            }
+        }
+        
+
 
         public override int Damage()
         {

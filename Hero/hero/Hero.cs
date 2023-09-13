@@ -10,6 +10,7 @@ namespace Hero.hero
         protected string Name;
         protected HeroAttribute LevelAttributes;
         protected string ValidWeaponTypes { get; set; }
+        protected string ValidArmorTypes { get; set; }
 
 
         public int Level;
@@ -22,6 +23,7 @@ namespace Hero.hero
         public abstract void DisplayEquipment();
         public abstract int Damage();
         public abstract void EquipWeapon(Weapon weapon);
+        public abstract void EquipArmor(Armor armor);
 
         public Hero(string name)
         {
