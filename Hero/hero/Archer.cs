@@ -18,6 +18,7 @@ namespace Hero.hero
 
         private Weapon equippedWeapon;
         private Armor equippedArmor;
+       
 
 
         public Archer(string name) : base(name)
@@ -70,15 +71,8 @@ namespace Hero.hero
 
         public override int Damage()
         {
-            double damageWeapon = 1;
-            if (equippedWeapon != null)
-            {
-                damageWeapon = equippedWeapon.WeaponDamage;
-            }
+            return DamageCalculator.CalculateDamage(equippedWeapon, LevelAttributes.Dexterity);
 
-            double damage = damageWeapon * (1 + (LevelAttributes.Dexterity / 100.0));
-
-            return (int)damage;
         }
     }
 }
