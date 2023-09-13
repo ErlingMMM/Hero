@@ -6,6 +6,7 @@ namespace Hero.Services
     {
         public void LevelUp(HeroAttribute attributes, int strengthIncrease, int dexterityIncrease, int intelligenceIncrease)
         {
+
             int levelStrength = attributes.Strength + strengthIncrease;
             int levelDexterity = attributes.Dexterity + dexterityIncrease;
             int levelIntelligence = attributes.Intelligence + intelligenceIncrease;

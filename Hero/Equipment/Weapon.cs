@@ -8,13 +8,14 @@ namespace Hero.Equipment
 
       
         public WeaponType WeaponType { get; }
-        public Weapon(string name, int requiredLevel, string slot, WeaponType weaponType) : base(name, requiredLevel, slot)
+        public int WeaponDamage { get; }
+        public Weapon(string name, int requiredLevel, string slot, WeaponType weaponType, int weaponDamage) : base(name, requiredLevel, slot)
         {
             Name = name;
             RequiredLevel = requiredLevel;
             Slot = slot;
             WeaponType = weaponType;
-           
+            WeaponDamage = weaponDamage;
         }
     }
 }
