@@ -8,7 +8,7 @@ namespace Hero.hero
     {
         private readonly DisplayHeroService displayHeroService = new DisplayHeroService();
         private readonly DisplayEquipmentService displayEquipmentService = new DisplayEquipmentService();
-        private readonly LevelUpService levelUpService = new LevelUpService();
+        private readonly AttributeIncreaser increaseAttributes = new AttributeIncreaser();
         private readonly EquipWeaponService equipWeaponService = new EquipWeaponService();
         private readonly EquipArmorService equipArmorService = new EquipArmorService();
 
@@ -28,11 +28,18 @@ namespace Hero.hero
             ValidArmorTypes = " Leather, Mail";
         }
 
-        public override void LevelUp()
+        public override HeroAttribute LevelUp()
         {
             Level++;
-            levelUpService.LevelUp(LevelAttributes, ArcherStrengthIncrease, ArcherDexterityIncrease, ArcherIntelligenceIncrease);
+            return increaseAttributes.IncreaseAttributes(LevelAttributes, ArcherStrengthIncrease, ArcherDexterityIncrease, ArcherIntelligenceIncrease);
         }
+
+
+        public override HeroAttribute AttributeIncrease(int StrengthIncrease, int DexterityIncrease, int IntelligenceIncrease)
+        {
+            return increaseAttributes.IncreaseAttributes(LevelAttributes, StrengthIncrease, DexterityIncrease, IntelligenceIncrease);
+        }
+
 
         public override void Display()
         {

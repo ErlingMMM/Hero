@@ -16,12 +16,14 @@ namespace Hero.hero
         public int Level;
         public Dictionary<Slot, Item> Equipment;
         public Slot Slot { get; }
-        
 
-        public abstract void LevelUp();
+
+        public abstract HeroAttribute LevelUp();
+        public abstract HeroAttribute AttributeIncrease(int StrengthIncrease, int DexterityIncrease, int IntelligenceIncrease);
         public abstract void Display();
         public abstract void DisplayEquipment();
         public abstract int Damage();
+        
         public abstract void EquipWeapon(Weapon weapon);
         public abstract void EquipArmor(Armor armor);
 
