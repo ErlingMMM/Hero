@@ -9,6 +9,7 @@ namespace Hero.hero
         private readonly DisplayService displayService = new DisplayService();
         private readonly DisplayEquipmentService displayEquipmentService = new DisplayEquipmentService();
         private readonly LevelUpService levelUpService = new LevelUpService();
+        private readonly EquipWeaponService equipService = new EquipWeaponService();
 
 
         private const int ArcherStrengthIncrease = 1;
@@ -40,6 +41,15 @@ namespace Hero.hero
             displayEquipmentService.DisplayEquipment(Name, Level, Equipment);
 
         }
+
+
+
+        public override void EquipWeapon(Weapon weapon)
+        {
+            bool equipSuccess = equipService.Equipping(weapon, ValidWeaponTypes, Level, Equipment);
+
+        }
+
     }
 }
 
