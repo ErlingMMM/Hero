@@ -1,8 +1,5 @@
 ﻿
 
-using Hero.Attributes;
-using System.Xml.Linq;
-using static Hero.Equipment.Weapon;
 
 namespace Hero.Equipment
 {

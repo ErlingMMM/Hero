@@ -1,5 +1,7 @@
-﻿using Hero.Equipment;
-
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Hero.Equipment;
 
 namespace Hero.Services
 {
@@ -7,16 +9,34 @@ namespace Hero.Services
     {
         public bool Equipping(Weapon weapon, string validWeaponTypes, int level, Dictionary<Slot, Item> equipment)
         {
-            if (validWeaponTypes.Split(',').Select(type => type.Trim()).Contains(weapon.WeaponType.ToString()) && level >= weapon.RequiredLevel)
+            try
             {
-                equipment[Slot.Weapon] = weapon;
-                Console.WriteLine($"Equipped: {weapon.Name}");
-                return true; 
+                if (validWeaponTypes.Split(',').Select(type => type.Trim()).Contains(weapon.WeaponType.ToString()) && level >= weapon.RequiredLevel)
+                {
+                    equipment[Slot.Weapon] = weapon;
+                    Console.WriteLine($"Equipped: {weapon.Name}");
+                    return true;
+                }
+                else
+                {
+                    string errorMessage = "Cannot equip this weapon.";
+
+                    if (level < weapon.RequiredLevel)
+                    {
+                        errorMessage += $" Required level: {weapon.RequiredLevel}";
+                    }
+                    else if (!validWeaponTypes.Split(',').Select(type => type.Trim()).Contains(weapon.WeaponType.ToString()))
+                    {
+                        errorMessage += $" Invalid weapon type: {weapon.WeaponType}";
+                    }
+
+                    throw new InvalidWeaponException(errorMessage);
+                }
             }
-            else
+            catch (InvalidWeaponException ex)
             {
-                Console.WriteLine("Cannot equip this weapon.");
-                return false; 
+                Console.WriteLine($"Error: {ex.Message}");
+                return false;
             }
         }
     }
