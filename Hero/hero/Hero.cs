@@ -20,7 +20,7 @@ namespace Hero.hero
         public abstract void LevelUp();
         public abstract void Display();
         public abstract void DisplayEquipment();
-        public abstract void Damage();
+        public abstract int Damage();
         public abstract void EquipWeapon(Weapon weapon);
 
         public Hero(string name)

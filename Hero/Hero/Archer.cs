@@ -15,6 +15,9 @@ namespace Hero.hero
         private const int ArcherDexterityIncrease = 5;
         private const int ArcherIntelligenceIncrease = 1;
 
+        private Weapon equippedWeapon;
+
+
         public Archer(string name) : base(name)
         {
             LevelAttributes = new HeroAttribute(strength: 1, dexterity: 7, intelligence: 1);
@@ -43,10 +46,25 @@ namespace Hero.hero
         public override void EquipWeapon(Weapon weapon)
         {
             bool equipSuccess = equipService.Equipping(weapon, ValidWeaponTypes, Level, Equipment);
+
+            if (equipSuccess)
+            {
+                equippedWeapon = weapon;
+            }
         }
 
-        public override void Damage()
+        public override int Damage()
         {
+            double damageWeapon = 1;
+            if (equippedWeapon != null)
+            {
+                damageWeapon = equippedWeapon.WeaponDamage;
+            }
+
+            double damage = damageWeapon * (1 + (LevelAttributes.Dexterity / 100.0));
+
+            return (int)damage;
+
 
         }
     }

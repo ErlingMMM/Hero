@@ -9,9 +9,14 @@ class Program
     {
         Archer archer = new Archer("Robin Hood");
         Weapon commonBow = new Weapon("Common Bow", 1, "Weapon", WeaponType.Bow, 10);
+        
 
         archer.EquipWeapon(commonBow);
+       
+
         archer.LevelUp();
+        int damage = archer.Damage();
+        Console.WriteLine($"Archer's damage: {damage}");
         archer.Display();
         archer.DisplayEquipment();
     }
