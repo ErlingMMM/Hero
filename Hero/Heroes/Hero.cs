@@ -14,6 +14,7 @@ namespace Dungeon.hero
 
 
 
+
         public int Level;
         public Dictionary<Slot, Item> Equipment;
         public Slot Slot { get; }

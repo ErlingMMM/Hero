@@ -11,6 +11,7 @@ namespace Dungeon.hero
         private readonly EquipWeaponService equipWeaponService = new EquipWeaponService();
         private readonly EquipArmorService equipArmorService = new EquipArmorService();
 
+
         private const int StrengthLevelUp = 1;
         private const int DexterityLevelUp = 5;
         private const int IntelligenceLevelUp = 1;
