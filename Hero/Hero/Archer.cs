@@ -12,12 +12,11 @@ namespace Hero.hero
         private readonly EquipWeaponService equipWeaponService = new EquipWeaponService();
         private readonly EquipArmorService equipArmorService = new EquipArmorService();
 
-        private const int ArcherStrengthIncrease = 1;
-        private const int ArcherDexterityIncrease = 5;
-        private const int ArcherIntelligenceIncrease = 1;
+        private const int StrengthLevelUp = 1;
+        private const int DexterityLevelUp = 5;
+        private const int IntelligenceLevelUp = 1;
 
         private Weapon equippedWeapon;
-        private Armor equippedArmor;
        
 
 
@@ -31,7 +30,7 @@ namespace Hero.hero
         public override HeroAttribute LevelUp()
         {
             Level++;
-            return increaseAttributes.IncreaseAttributes(LevelAttributes, ArcherStrengthIncrease, ArcherDexterityIncrease, ArcherIntelligenceIncrease);
+            return increaseAttributes.IncreaseAttributes(LevelAttributes, StrengthLevelUp, DexterityLevelUp, IntelligenceLevelUp);
         }
 
 
@@ -66,12 +65,7 @@ namespace Hero.hero
 
         public override void EquipArmor(Armor armor)
         {
-            bool equipSuccess = equipArmorService.Equipping(armor, ValidArmorTypes, Level, Equipment);
-
-            if (equipSuccess)
-            {
-                equippedArmor = armor;
-            }
+             equipArmorService.Equipping(armor, ValidArmorTypes, Level, Equipment);
         }
         
 

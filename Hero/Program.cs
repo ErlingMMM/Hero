@@ -26,9 +26,18 @@ class Program
 
         Console.WriteLine("-------------------------------------------------------");
 
-        var headIncrease = archer. TotalAttributes(10, 20, 30);
-        var bodyIncrease = archer. TotalAttributes(1, 2, 3);
-        var legIncrease = archer. TotalAttributes(10, 4, 5);
+
+
+        //  README ADD!!!!!
+
+
+
+
+
+
+        var headIncrease = archer.TotalAttributes(10, 20, 30);
+        var bodyIncrease = archer.TotalAttributes(1, 2, 3);
+        var legIncrease = archer.TotalAttributes(10, 4, 5);
         Armor headArmor = new Armor("Head Armor", 1, Slot.Head.ToString(), ArmorType.Mail, headIncrease);
         Armor bodyArmor = new Armor("Body Armor", 1, Slot.Body.ToString(), ArmorType.Plate, bodyIncrease);
         Armor legArmor = new Armor("Leg Armor", 1, Slot.Legs.ToString(), ArmorType.Leather, legIncrease);
