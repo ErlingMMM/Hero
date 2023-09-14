@@ -1,4 +1,4 @@
-﻿namespace Hero.Equipment
+﻿namespace HeroNamespace.Equipment
 {
     public abstract class Item
     {

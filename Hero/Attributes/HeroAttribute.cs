@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HeroNamespace.Attributes;
 
-namespace Hero.Attributes
+namespace HeroNamespace.Attributes
 {
     public class HeroAttribute
     {
         public int Strength { get; set; }
         public int Dexterity { get; set; }
         public int Intelligence { get; set; }
-
 
         public HeroAttribute(int strength, int dexterity, int intelligence)
         {
@@ -20,8 +15,11 @@ namespace Hero.Attributes
             Intelligence = intelligence;
         }
 
-        public HeroAttribute()
+        public void Increase(int strengthIncrease, int dexterityIncrease, int intelligenceIncrease)
         {
+            Strength += strengthIncrease;
+            Dexterity += dexterityIncrease;
+            Intelligence += intelligenceIncrease;
         }
     }
 }

@@ -1,14 +1,13 @@
-﻿using Hero.Attributes;
-using Hero.Equipment;
-using Hero.Services;
+﻿using HeroNamespace.Attributes;
+using HeroNamespace.Equipment;
+using HeroNamespace.Services;
 
-namespace Hero.hero
+namespace HeroNamespace.hero
 {
     public class Archer : Hero
     {
         private readonly DisplayHeroService displayHeroService = new DisplayHeroService();
         private readonly DisplayEquipmentService displayEquipmentService = new DisplayEquipmentService();
-        private readonly AttributeIncreaser increaseAttributes = new AttributeIncreaser();
         private readonly EquipWeaponService equipWeaponService = new EquipWeaponService();
         private readonly EquipArmorService equipArmorService = new EquipArmorService();
 
@@ -27,17 +26,21 @@ namespace Hero.hero
             ValidArmorTypes = " Leather, Mail";
         }
 
+
         public override HeroAttribute LevelUp()
         {
             Level++;
-            return increaseAttributes.IncreaseAttributes(LevelAttributes, StrengthLevelUp, DexterityLevelUp, IntelligenceLevelUp);
+            LevelAttributes.Increase(StrengthLevelUp, DexterityLevelUp, IntelligenceLevelUp);
+            return LevelAttributes;
         }
-
 
         public override HeroAttribute TotalAttributes(int StrengthIncrease, int DexterityIncrease, int IntelligenceIncrease)
         {
-            return increaseAttributes.IncreaseAttributes(LevelAttributes, StrengthIncrease, DexterityIncrease, IntelligenceIncrease);
+            LevelAttributes.Increase(StrengthIncrease, DexterityIncrease, IntelligenceIncrease);
+            return LevelAttributes;
         }
+
+        // Take LevelAttributes -> loop thought equipment, get each armor, get their bonus attribute, add it to levelattribute
 
 
         public override void Display()

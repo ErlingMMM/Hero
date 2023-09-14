@@ -1,6 +1,6 @@
 ﻿
 
-namespace Hero.Equipment
+namespace HeroNamespace.Equipment
 {
 
     public enum ArmorType

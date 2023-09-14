@@ -1,8 +1,8 @@
 ﻿
 
-using Hero.Attributes;
+using HeroNamespace.Attributes;
 
-namespace Hero.Equipment
+namespace HeroNamespace.Equipment
 {
     public class Armor : Item
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Hero.Equipment;
+using HeroNamespace.Equipment;
 
-namespace Hero.Services
+namespace HeroNamespace.Services
 {
     public class EquipArmorService
     {

@@ -1,7 +1,7 @@
-﻿using Hero.Equipment;
+﻿using HeroNamespace.Equipment;
 using System.Text;
 
-namespace Hero.Services
+namespace HeroNamespace.Services
 {
     public class DisplayEquipmentService
     {

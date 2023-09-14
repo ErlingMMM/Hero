@@ -1,8 +1,8 @@
-﻿using Hero.Attributes;
+﻿using HeroNamespace.Attributes;
 using System.Text;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace Hero.Services
+namespace HeroNamespace.Services
 {
     public class DisplayHeroService
     {

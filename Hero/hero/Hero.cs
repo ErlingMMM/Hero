@@ -1,8 +1,8 @@
-﻿using Hero.Attributes;
-using Hero.Equipment;
+﻿using HeroNamespace.Attributes;
+using HeroNamespace.Equipment;
 
 
-namespace Hero.hero
+namespace HeroNamespace.hero
 {
 
     public abstract class Hero
@@ -31,8 +31,8 @@ namespace Hero.hero
         {
             Name = name;
             Level = 1;
-            LevelAttributes = new HeroAttribute();
-            Equipment = new Dictionary<Slot, Item>
+            LevelAttributes = new HeroAttribute(1, 1, 1);
+                Equipment = new Dictionary<Slot, Item>
             {
                 { Slot.Weapon, null },
                 { Slot.Head, null },
