@@ -1,6 +1,6 @@
 ﻿
 
-namespace HeroNamespace.Equipment
+namespace Dungeon.Equipment
 {
 
         public enum Slot

@@ -1,4 +1,4 @@
-﻿namespace HeroNamespace.Equipment
+﻿namespace Dungeon.Equipment
 {
     public abstract class Item
     {

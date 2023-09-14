@@ -1,7 +1,7 @@
-﻿using HeroNamespace.Equipment;
+﻿using Dungeon.Equipment;
 using System.Text;
 
-namespace HeroNamespace.Services
+namespace Dungeon.Services
 {
     public class DisplayEquipmentService
     {

@@ -1,8 +1,8 @@
-﻿using HeroNamespace.Attributes;
-using HeroNamespace.Equipment;
-using HeroNamespace.Services;
+﻿using Dungeon.Attributes;
+using Dungeon.Equipment;
+using Dungeon.Services;
 
-namespace HeroNamespace.hero
+namespace Dungeon.hero
 {
     public class Archer : Hero
     {

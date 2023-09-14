@@ -1,8 +1,8 @@
-﻿using HeroNamespace.Attributes;
+﻿using Dungeon.Attributes;
 using System.Text;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace HeroNamespace.Services
+namespace Dungeon.Services
 {
     public class DisplayHeroService
     {

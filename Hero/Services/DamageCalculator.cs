@@ -1,4 +1,4 @@
-﻿using HeroNamespace.Equipment;
+﻿using Dungeon.Equipment;
 
 public class DamageCalculator
 {

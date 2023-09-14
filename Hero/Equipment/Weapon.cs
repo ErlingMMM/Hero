@@ -1,7 +1,7 @@
 ﻿
 
 
-namespace HeroNamespace.Equipment
+namespace Dungeon.Equipment
 {
     public class Weapon : Item
     {

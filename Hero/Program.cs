@@ -1,5 +1,5 @@
-﻿using HeroNamespace.Equipment;
-using HeroNamespace.hero;
+﻿using Dungeon.Equipment;
+using Dungeon.hero;
 
 
 class Program

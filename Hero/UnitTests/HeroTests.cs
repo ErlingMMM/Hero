@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using HeroNamespace.hero;
+using Dungeon.hero;
 
 [TestFixture]
 public class HeroTests

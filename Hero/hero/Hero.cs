@@ -1,8 +1,8 @@
-﻿using HeroNamespace.Attributes;
-using HeroNamespace.Equipment;
+﻿using Dungeon.Attributes;
+using Dungeon.Equipment;
 
 
-namespace HeroNamespace.hero
+namespace Dungeon.hero
 {
 
     public abstract class Hero

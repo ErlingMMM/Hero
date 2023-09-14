@@ -1,8 +1,8 @@
 ﻿
 
-using HeroNamespace.Attributes;
+using Dungeon.Attributes;
 
-namespace HeroNamespace.Equipment
+namespace Dungeon.Equipment
 {
     public class Armor : Item
     {
