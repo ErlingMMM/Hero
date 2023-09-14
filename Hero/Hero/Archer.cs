@@ -42,7 +42,9 @@ namespace Hero.hero
 
         public override void Display()
         {
-            string heroInfo = displayHeroService.DisplayHeroInfo(Name, "Archer", Level, LevelAttributes);
+            int damage = Damage();
+
+            string heroInfo = displayHeroService.DisplayHeroInfo(Name, "Archer", Level, LevelAttributes, damage);
             Console.WriteLine(heroInfo);
         }
 
