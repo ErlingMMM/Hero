@@ -1,21 +1,20 @@
 ﻿using Dungeon.Attributes;
 using System.Text;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Dungeon.Services
 {
     public class DisplayHeroService
     {
-        public string DisplayHeroInfo(string name, string heroClass, int level, HeroAttribute attributes, int damage)
+        public string DisplayHeroInfo(string name, string heroClass, int level, HeroAttribute totalAttributes, int damage)
         {
             StringBuilder output = new StringBuilder();
 
             output.AppendLine($"Name: {name}");
             output.AppendLine($"Class: {heroClass}");
             output.AppendLine($"Level: {level}");
-            output.AppendLine($"Total Strength: {attributes.Strength}");
-            output.AppendLine($"Total Dexterity: {attributes.Dexterity}");
-            output.AppendLine($"Total Intelligence: {attributes.Intelligence}");
+            output.AppendLine($"Total Strength: {totalAttributes.Strength}");
+            output.AppendLine($"Total Dexterity: {totalAttributes.Dexterity}");
+            output.AppendLine($"Total Intelligence: {totalAttributes.Intelligence}");
             output.AppendLine($"Damage: {damage}");
             output.AppendLine();
 

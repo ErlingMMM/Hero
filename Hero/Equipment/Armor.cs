@@ -16,7 +16,7 @@ namespace Dungeon.Equipment
         {
             Name = name;
             RequiredLevel = requiredLevel;
-            Slot = slot;
+            ArmorSlot = (Slot)Enum.Parse(typeof(Slot), slot);
             ArmorType = armorType;
             ArmorAttribute = armorAttribute;
         }

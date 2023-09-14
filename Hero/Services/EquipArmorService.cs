@@ -17,6 +17,7 @@ namespace Dungeon.Services
                     if (Enum.IsDefined(typeof(Slot), armorSlot))
                     {
                         equipment[armorSlot] = armor;
+                     
                     }
                     else
                     {

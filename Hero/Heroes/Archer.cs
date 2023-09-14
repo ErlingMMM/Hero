@@ -12,20 +12,21 @@ namespace Dungeon.hero
         private readonly EquipArmorService equipArmorService = new EquipArmorService();
 
 
+
         private const int StrengthLevelUp = 1;
         private const int DexterityLevelUp = 5;
         private const int IntelligenceLevelUp = 1;
 
         private Weapon equippedWeapon;
 
-       
+
 
 
         public Archer(string name) : base(name)
         {
             LevelAttributes = new HeroAttribute(strength: 1, dexterity: 7, intelligence: 1);
             ValidWeaponTypes = "Bow";
-            ValidArmorTypes = " Leather, Mail";
+            ValidArmorTypes = " Leather,Mail";
         }
 
 
@@ -36,22 +37,19 @@ namespace Dungeon.hero
             return LevelAttributes;
         }
 
-        public override HeroAttribute TotalAttributes(int StrengthIncrease, int DexterityIncrease, int IntelligenceIncrease)
-        {
-            LevelAttributes.Increase(StrengthIncrease, DexterityIncrease, IntelligenceIncrease);
-            return LevelAttributes;
-        }
 
-        // Take LevelAttributes -> loop thought equipment, get each armor, get their bonus attribute, add it to levelattribute
+
 
 
         public override void Display()
         {
             int damage = Damage();
+            HeroAttribute totalAttributes = ArmorBonus();
 
-            string heroInfo = displayHeroService.DisplayHeroInfo(Name, "Archer", Level, LevelAttributes, damage);
+            string heroInfo = displayHeroService.DisplayHeroInfo(Name, "Archer", Level, totalAttributes, damage);
             Console.WriteLine(heroInfo);
         }
+
 
 
         public override void DisplayEquipment()
@@ -70,11 +68,45 @@ namespace Dungeon.hero
             }
         }
 
+
+
         public override void EquipArmor(Armor armor)
         {
-             equipArmorService.Equipping(armor, ValidArmorTypes, Level, Equipment);
+            equipArmorService.Equipping(armor, ValidArmorTypes, Level, Equipment);
+            ArmorBonus();
         }
-        
+
+
+
+
+
+
+
+        public override HeroAttribute ArmorBonus()
+        {
+            int strengthBonus = 0;
+            int dexterityBonus = 0;
+            int intelligenceBonus = 0;
+
+            foreach (var kvp in Equipment)
+            {
+                if (kvp.Key != Slot.Weapon && kvp.Value is Armor armor)
+                {
+                    strengthBonus += armor.ArmorAttribute.Strength;
+                    dexterityBonus += armor.ArmorAttribute.Dexterity;
+                    intelligenceBonus += armor.ArmorAttribute.Intelligence;
+                }
+            }
+
+            var totalAttributes = new HeroAttribute(
+                LevelAttributes.Strength + strengthBonus,
+                LevelAttributes.Dexterity + dexterityBonus,
+                LevelAttributes.Intelligence + intelligenceBonus);
+
+            return totalAttributes;
+        }
+
+
 
 
         public override int Damage()
@@ -82,5 +114,6 @@ namespace Dungeon.hero
             return DamageCalculator.CalculateDamage(equippedWeapon, LevelAttributes.Dexterity);
 
         }
+
     }
 }
