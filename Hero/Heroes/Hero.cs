@@ -13,6 +13,7 @@ namespace Dungeon.hero
         protected string ValidArmorTypes { get; set; }
 
 
+
         public int Level;
         public Dictionary<Slot, Item> Equipment;
         public Slot Slot { get; }

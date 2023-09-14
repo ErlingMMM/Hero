@@ -16,6 +16,7 @@ namespace Dungeon.hero
         private const int IntelligenceLevelUp = 1;
 
         private Weapon equippedWeapon;
+
        
 
 
