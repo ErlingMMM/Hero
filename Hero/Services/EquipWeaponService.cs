@@ -11,7 +11,8 @@ namespace Dungeon.Services
         {
             try
             {
-                if (validWeaponTypes.Split(',').Select(type => type.Trim()).Contains(weapon.WeaponType.ToString()) && level >= weapon.RequiredLevel)
+
+                if (validWeaponTypes?.Split(',').Select(type => type.Trim()).Contains(weapon.WeaponType.ToString()) == true && level >= weapon.RequiredLevel)
                 {
                     equipment[Slot.Weapon] = weapon;
                     Console.WriteLine($"Equipped: {weapon.Name}");
@@ -25,7 +26,7 @@ namespace Dungeon.Services
                     {
                         errorMessage += $" Required level: {weapon.RequiredLevel}";
                     }
-                    else if (!validWeaponTypes.Split(',').Select(type => type.Trim()).Contains(weapon.WeaponType.ToString()))
+                    else if (!validWeaponTypes?.Split(',').Select(type => type.Trim()).Contains(weapon.WeaponType.ToString()) == true)
                     {
                         errorMessage += $" Invalid weapon type: {weapon.WeaponType}";
                     }
@@ -39,5 +40,6 @@ namespace Dungeon.Services
                 return false;
             }
         }
+
     }
 }
