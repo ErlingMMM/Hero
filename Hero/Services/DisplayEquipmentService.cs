@@ -5,7 +5,7 @@ namespace Dungeon.Services
 {
     public class DisplayEquipmentService
     {
-        public string DisplayEquipment(string name, int level, Dictionary<Slot, Item> equipment)
+        public string DisplayEquipment(string name, int level, Dictionary<Slot, Item?> equipment)
         {
             StringBuilder output = new StringBuilder();
             output.AppendLine($"Equipment for {name} (Level {level}):");

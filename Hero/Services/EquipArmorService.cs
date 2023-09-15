@@ -7,7 +7,7 @@ namespace Dungeon.Services
 {
     public class EquipArmorService
     {
-        public bool Equipping(Armor armor, string validArmorTypes, int level, Dictionary<Slot, Item> equipment)
+        public bool Equipping(Armor armor, string validArmorTypes, int level, Dictionary<Slot, Item?> equipment)
         {
             try
             {

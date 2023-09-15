@@ -14,7 +14,7 @@ namespace Dungeon.hero
 
 
         public int Level;
-        public Dictionary<Slot, Item> Equipment;
+        public Dictionary<Slot, Item?> Equipment;
         public Slot Slot { get; }
 
 
@@ -34,7 +34,7 @@ namespace Dungeon.hero
             Name = name;
             Level = 1;
             LevelAttributes = new HeroAttribute(1, 1, 1);
-                Equipment = new Dictionary<Slot, Item>
+            Equipment = new Dictionary<Slot, Item?>
             {
                 { Slot.Weapon, null },
                 { Slot.Head, null },
