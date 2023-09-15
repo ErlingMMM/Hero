@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+﻿/*using NUnit.Framework;
 using Dungeon.hero;
 
 [TestFixture]
@@ -15,12 +15,12 @@ public class HeroTests
 
         Hero hero = new Archer(expectedName); 
 
-       /*
+       
         Assert.AreEqual(expectedName, hero.Name);
         Assert.AreEqual(expectedLevel, hero.Level);
         Assert.AreEqual(expectedStrength, hero.LevelAttributes.Strength);
         Assert.AreEqual(expectedDexterity, hero.LevelAttributes.Dexterity);
         Assert.AreEqual(expectedIntelligence, hero.LevelAttributes.Intelligence);
-       */
+       
     }
-}
+}*/

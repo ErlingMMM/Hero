@@ -72,7 +72,8 @@ namespace Dungeon.hero
 
         public override void EquipArmor(Armor armor)
         {
-            equipArmorService.Equipping(armor, ValidArmorTypes, Level, Equipment);
+            string validArmorTypes = ValidArmorTypes ?? string.Empty;
+            equipArmorService.Equipping(armor, validArmorTypes, Level, Equipment);
             TotalAttributes();
         }
 

@@ -9,8 +9,8 @@ namespace Dungeon.hero
     {
         protected string Name;
         protected HeroAttribute LevelAttributes;
-        protected string ValidWeaponTypes { get; set; }
-        protected string ValidArmorTypes { get; set; }
+        protected string? ValidWeaponTypes { get; set; }
+        protected string? ValidArmorTypes { get; set; }
 
 
         public int Level;
