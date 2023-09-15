@@ -17,7 +17,7 @@ namespace Dungeon.hero
         private const int DexterityLevelUp = 5;
         private const int IntelligenceLevelUp = 1;
 
-        private Weapon equippedWeapon;
+        private Weapon? equippedWeapon;
 
 
 
@@ -112,6 +112,7 @@ namespace Dungeon.hero
         public override int Damage()
         {
             return DamageCalculator.CalculateDamage(equippedWeapon, LevelAttributes.Dexterity);
+
 
         }
 

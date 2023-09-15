@@ -37,7 +37,7 @@ class Program
 
 
         Armor headArmor = new Armor("Head Armor", 1, Slot.Head.ToString(), ArmorType.Mail, new Dungeon.Attributes.HeroAttribute(10, 20, 30));
-        Armor headArmor2 = new Armor("Head Armor", 1, Slot.Head.ToString(), ArmorType.Mail, new Dungeon.Attributes.HeroAttribute(10, 20, 30));
+        Armor headArmor2 = new Armor("Head Armor2", 1, Slot.Head.ToString(), ArmorType.Mail, new Dungeon.Attributes.HeroAttribute(10, 20, 30));
         Armor clothArmor = new Armor("Head Armor", 1, Slot.Head.ToString(), ArmorType.Cloth, new Dungeon.Attributes.HeroAttribute(10, 20, 30));
         Armor legArmor = new Armor("Leg Armor", 1, Slot.Legs.ToString(), ArmorType.Leather, new Dungeon.Attributes.HeroAttribute(10, 20, 30));
 
