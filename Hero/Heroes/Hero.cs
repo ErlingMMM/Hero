@@ -38,7 +38,6 @@ namespace Dungeon.hero
             };
         }
 
-        // Moved TotalAttributes method here
         public HeroAttribute TotalAttributes()
         {
             int strengthBonus = 0;
