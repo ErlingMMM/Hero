@@ -19,7 +19,7 @@ namespace Dungeon.hero
 
 
         public abstract HeroAttribute LevelUp();
-        public abstract HeroAttribute ArmorBonus();
+        public abstract HeroAttribute TotalAttributes();
         public abstract void Display();
         public abstract void DisplayEquipment();
         public abstract int Damage();

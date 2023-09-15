@@ -44,7 +44,7 @@ namespace Dungeon.hero
         public override void Display()
         {
             int damage = Damage();
-            HeroAttribute totalAttributes = ArmorBonus();
+            HeroAttribute totalAttributes = TotalAttributes();
 
             string heroInfo = displayHeroService.DisplayHeroInfo(Name, "Archer", Level, totalAttributes, damage);
             Console.WriteLine(heroInfo);
@@ -73,7 +73,7 @@ namespace Dungeon.hero
         public override void EquipArmor(Armor armor)
         {
             equipArmorService.Equipping(armor, ValidArmorTypes, Level, Equipment);
-            ArmorBonus();
+            TotalAttributes();
         }
 
 
@@ -82,7 +82,7 @@ namespace Dungeon.hero
 
 
 
-        public override HeroAttribute ArmorBonus()
+        public override HeroAttribute TotalAttributes()
         {
             int strengthBonus = 0;
             int dexterityBonus = 0;
@@ -98,12 +98,12 @@ namespace Dungeon.hero
                 }
             }
 
-            var totalAttributes = new HeroAttribute(
+            var total = new HeroAttribute(
                 LevelAttributes.Strength + strengthBonus,
                 LevelAttributes.Dexterity + dexterityBonus,
                 LevelAttributes.Intelligence + intelligenceBonus);
 
-            return totalAttributes;
+            return total;
         }
 
 
