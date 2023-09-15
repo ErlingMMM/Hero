@@ -10,7 +10,7 @@ class Program
         
 
         Archer archer = new Archer("Robin Hood");
-        Weapon commonBow = new Weapon("Common Bow", 1, Slot.Weapon.ToString(), WeaponType.Bow, 10);
+        Weapon commonBow = new Weapon("Common Bow", 1, Slot.Weapon, WeaponType.Bow, 10);
       
 
 
@@ -36,10 +36,10 @@ class Program
 
 
 
-        Armor headArmor = new Armor("Head Armor", 1, Slot.Head.ToString(), ArmorType.Mail, new Dungeon.Attributes.HeroAttribute(10, 20, 30));
-        Armor headArmor2 = new Armor("Head Armor2", 1, Slot.Head.ToString(), ArmorType.Mail, new Dungeon.Attributes.HeroAttribute(10, 20, 30));
-        Armor clothArmor = new Armor("Head Armor", 1, Slot.Head.ToString(), ArmorType.Cloth, new Dungeon.Attributes.HeroAttribute(10, 20, 30));
-        Armor legArmor = new Armor("Leg Armor", 1, Slot.Legs.ToString(), ArmorType.Leather, new Dungeon.Attributes.HeroAttribute(10, 20, 30));
+        Armor headArmor = new Armor("Head Armor", 1, Slot.Head, ArmorType.Mail, new Dungeon.Attributes.HeroAttribute(10, 20, 30));
+        Armor headArmor2 = new Armor("Head Armor2", 1, Slot.Head, ArmorType.Mail, new Dungeon.Attributes.HeroAttribute(10, 20, 30));
+        Armor clothArmor = new Armor("Head Armor", 1, Slot.Head, ArmorType.Cloth, new Dungeon.Attributes.HeroAttribute(10, 20, 30));
+        Armor legArmor = new Armor("Leg Armor", 1, Slot.Legs, ArmorType.Leather, new Dungeon.Attributes.HeroAttribute(10, 20, 30));
 
 
         archer.EquipArmor(headArmor);

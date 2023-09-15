@@ -9,11 +9,13 @@ namespace Dungeon.Equipment
       
         public WeaponType WeaponType { get; }
         public int WeaponDamage { get; }
-        public Weapon(string name, int requiredLevel, string slot, WeaponType weaponType, int weaponDamage) : base(name, requiredLevel, slot)
+        public Slot WeaponSlot { get; }
+
+        public Weapon(string name, int requiredLevel, Slot slot, WeaponType weaponType, int weaponDamage) : base(name, requiredLevel, slot)
         {
             Name = name;
             RequiredLevel = requiredLevel;
-            Slot = slot;
+            WeaponSlot = slot;
             WeaponType = weaponType;
             WeaponDamage = weaponDamage;
         }

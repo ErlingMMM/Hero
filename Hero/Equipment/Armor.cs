@@ -12,11 +12,11 @@ namespace Dungeon.Equipment
         public Slot ArmorSlot { get; }
 
 
-        public Armor(string name, int requiredLevel, string slot, ArmorType armorType, HeroAttribute armorAttribute) : base(name, requiredLevel, slot)
+        public Armor(string name, int requiredLevel, Slot slot, ArmorType armorType, HeroAttribute armorAttribute) : base(name, requiredLevel, slot)
         {
             Name = name;
             RequiredLevel = requiredLevel;
-            ArmorSlot = (Slot)Enum.Parse(typeof(Slot), slot);
+            ArmorSlot = slot;
             ArmorType = armorType;
             ArmorAttribute = armorAttribute;
         }

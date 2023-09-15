@@ -4,13 +4,12 @@
     {
         public string Name;
         public int RequiredLevel;
-        public string Slot;
-
-        protected Item(string name, int requiredLevel, string slot)
+        public Slot Slot { get; }
+        protected Item(string name, int requiredLevel, Slot slot)
         {
             Name = name;
             RequiredLevel = requiredLevel;
-            Slot = slot;
+             Slot = slot;
         }
     }
 }
