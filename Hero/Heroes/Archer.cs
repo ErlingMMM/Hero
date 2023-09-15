@@ -81,35 +81,6 @@ namespace Dungeon.hero
 
 
 
-
-
-        public override HeroAttribute TotalAttributes()
-        {
-            int strengthBonus = 0;
-            int dexterityBonus = 0;
-            int intelligenceBonus = 0;
-
-            foreach (var kvp in Equipment)
-            {
-                if (kvp.Key != Slot.Weapon && kvp.Value is Armor armor)
-                {
-                    strengthBonus += armor.ArmorAttribute.Strength;
-                    dexterityBonus += armor.ArmorAttribute.Dexterity;
-                    intelligenceBonus += armor.ArmorAttribute.Intelligence;
-                }
-            }
-
-            var total = new HeroAttribute(
-                LevelAttributes.Strength + strengthBonus,
-                LevelAttributes.Dexterity + dexterityBonus,
-                LevelAttributes.Intelligence + intelligenceBonus);
-
-            return total;
-        }
-
-
-
-
         public override int Damage()
         {
             return DamageCalculator.CalculateDamage(equippedWeapon, LevelAttributes.Dexterity);
