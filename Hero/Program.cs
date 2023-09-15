@@ -1,6 +1,6 @@
-﻿using Dungeon.Attributes;
-using Dungeon.Equipment;
-using Dungeon.hero;
+﻿using DungeonMaster.Attributes;
+using DungeonMaster.Equipment;
+using DungeonMaster.hero;
 
 
 class Program

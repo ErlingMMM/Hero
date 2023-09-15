@@ -1,8 +1,8 @@
-﻿using Dungeon.Attributes;
-using Dungeon.Equipment;
-using Dungeon.Services;
+﻿using DungeonMaster.Attributes;
+using DungeonMaster.Equipment;
+using DungeonMaster.Services;
 
-namespace Dungeon.hero
+namespace DungeonMaster.hero
 {
     public class Archer : Hero
     {
@@ -23,7 +23,9 @@ namespace Dungeon.hero
 
 
         public Archer(string name) : base(name)
+
         {
+           
             LevelAttributes = new HeroAttribute(strength: 1, dexterity: 7, intelligence: 1);
             ValidWeaponTypes = "Bow";
             ValidArmorTypes = " Leather,Mail";

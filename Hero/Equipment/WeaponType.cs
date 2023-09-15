@@ -1,6 +1,6 @@
 ﻿
 
-namespace Dungeon.Equipment
+namespace DungeonMaster.Equipment
 {
   
         public enum WeaponType

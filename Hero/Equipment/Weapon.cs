@@ -1,7 +1,7 @@
 ﻿
 
 
-namespace Dungeon.Equipment
+namespace DungeonMaster.Equipment
 {
     public class Weapon : Item
     {

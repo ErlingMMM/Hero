@@ -1,7 +1,7 @@
-﻿using Dungeon.Attributes;
+﻿using DungeonMaster.Attributes;
 using System.Text;
 
-namespace Dungeon.Services
+namespace DungeonMaster.Services
 {
     public class DisplayHeroService
     {

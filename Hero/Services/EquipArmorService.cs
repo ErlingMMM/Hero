@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Dungeon.Equipment;
+using DungeonMaster.Equipment;
 
-namespace Dungeon.Services
+namespace DungeonMaster.Services
 {
     public class EquipArmorService
     {

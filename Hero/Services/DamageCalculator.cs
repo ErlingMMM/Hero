@@ -1,4 +1,4 @@
-﻿using Dungeon.Equipment;
+﻿using DungeonMaster.Equipment;
 
 public class DamageCalculator
 {

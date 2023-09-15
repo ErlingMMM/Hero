@@ -1,6 +1,6 @@
-﻿using Dungeon.Attributes;
+﻿using DungeonMaster.Attributes;
 
-namespace Dungeon.Attributes
+namespace DungeonMaster.Attributes
 {
     public class HeroAttribute
     {

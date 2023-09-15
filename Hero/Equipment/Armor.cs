@@ -1,8 +1,8 @@
 ﻿
 
-using Dungeon.Attributes;
+using DungeonMaster.Attributes;
 
-namespace Dungeon.Equipment
+namespace DungeonMaster.Equipment
 {
     public class Armor : Item
     {

@@ -1,10 +1,10 @@
-﻿using Dungeon.Attributes;
-using Dungeon.Equipment;
-using Dungeon.Services;
+﻿using DungeonMaster.Attributes;
+using DungeonMaster.Equipment;
+using DungeonMaster.Services;
 using System;
 using System.Collections.Generic;
 
-namespace Dungeon.hero
+namespace DungeonMaster.hero
 {
     public abstract class Hero
     {
@@ -13,9 +13,14 @@ namespace Dungeon.hero
         protected string? ValidWeaponTypes { get; set; }
         protected string? ValidArmorTypes { get; set; }
 
+
         public int Level;
         public Dictionary<Slot, Item?> Equipment;
         public Slot Slot { get; }
+        public string GetName()
+        {
+            return Name;
+        }
 
         public abstract HeroAttribute LevelUp();
         public abstract void Display();

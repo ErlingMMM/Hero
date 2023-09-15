@@ -1,4 +1,4 @@
-﻿namespace Dungeon.Equipment
+﻿namespace DungeonMaster.Equipment
 {
     public abstract class Item
     {

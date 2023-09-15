@@ -1,7 +1,7 @@
-﻿using Dungeon.Equipment;
+﻿using DungeonMaster.Equipment;
 using System.Text;
 
-namespace Dungeon.Services
+namespace DungeonMaster.Services
 {
     public class DisplayEquipmentService
     {
