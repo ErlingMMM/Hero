@@ -33,7 +33,7 @@ namespace DungenMaster.Tests
         }
 
         [Fact]
-        public void LegolasIncreaseLevel_ShouldHaveCorrectIncreasedLevelAttributes()
+        public void ArcherIncreaseLevel_ShouldHaveCorrectIncreasedLevelAttributes()
         {
             int expectedLevel = 2;
             Hero legolas = new Archer("Legolas");
@@ -42,7 +42,7 @@ namespace DungenMaster.Tests
         }
 
         [Fact]
-        public void LegolasIncreaseLevel_ShouldHaveCorrectIncreasedStrength()
+        public void ArcherIncreaseLevel_ShouldHaveCorrectIncreasedStrength()
         {
             int expectedStrength = 2;
             Hero legolas = new Archer("Legolas");
@@ -51,7 +51,7 @@ namespace DungenMaster.Tests
         }
 
         [Fact]
-        public void LegolasIncreaseLevel_ShouldHaveCorrectIncreasedDexterity()
+        public void ArcherIncreaseLevel_ShouldHaveCorrectIncreasedDexterity()
         {
             int expectedDexterity = 12;
             Hero legolas = new Archer("Legolas");
@@ -60,13 +60,46 @@ namespace DungenMaster.Tests
         }
 
         [Fact]
-        public void LegolasIncreaseLevel_ShouldHaveCorrectIncreasedIntelligence()
+        public void ArcherIncreaseLevel_ShouldHaveCorrectIncreasedIntelligence()
         {
             int expectedIntelligence = 2;
             Hero legolas = new Archer("Legolas");
             legolas.LevelUp();
             Assert.Equal(expectedIntelligence, legolas.GetLevelAttributes().Intelligence);
         }
+
+
+        [Fact]
+        public void LevelUp_ShouldIncreaseStrengthCorrectly()
+        {
+            int expectedDefaultStrength = 1;
+            int expectedLevelUpStrengthIncrease = 1;
+            Hero legolas = new Archer("Legolas");
+            legolas.LevelUp();
+            Assert.Equal(expectedDefaultStrength + expectedLevelUpStrengthIncrease, legolas.GetLevelAttributes().Strength);
+        }
+
+        [Fact]
+        public void LevelUp_ShouldIncreaseDexterityCorrectly()
+        {
+            int expectedDefaultDexterity = 7;
+            int expectedLevelUpDexterityIncrease = 5;
+            Hero legolas = new Archer("Legolas");
+            legolas.LevelUp();
+            Assert.Equal(expectedDefaultDexterity + expectedLevelUpDexterityIncrease, legolas.GetLevelAttributes().Dexterity);
+        }
+
+        [Fact]
+        public void LevelUp_ShouldIncreaseIntelligenceCorrectly()
+        {
+            int expectedDefaultIntelligence = 1;
+            int expectedLevelUpIntelligenceIncrease = 1;
+            Hero legolas = new Archer("Legolas");
+            legolas.LevelUp();
+            Assert.Equal(expectedDefaultIntelligence + expectedLevelUpIntelligenceIncrease, legolas.GetLevelAttributes().Intelligence);
+        }
+
+
 
         [Fact]
         public void CreatedWeapon_ShouldHaveCorrectName()
