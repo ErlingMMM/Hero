@@ -5,9 +5,9 @@ namespace DungeonMaster.Services
 {
     public class DisplayHeroService
     {
-        public string DisplayHeroInfo(string name, string heroClass, int level, HeroAttribute totalAttributes, int damage)
+        public static string DisplayHeroInfo(string name, string heroClass, int level, HeroAttribute totalAttributes, int damage)
         {
-            StringBuilder output = new StringBuilder();
+            StringBuilder output = new();
 
             output.AppendLine($"Name: {name}");
             output.AppendLine($"Class: {heroClass}");

@@ -5,9 +5,9 @@ namespace DungeonMaster.Services
 {
     public class DisplayEquipmentService
     {
-        public string DisplayEquipment(string name, int level, Dictionary<Slot, Item?> equipment)
+        public static string DisplayEquipment(string name, int level, Dictionary<Slot, Item?> equipment)
         {
-            StringBuilder output = new StringBuilder();
+            StringBuilder output = new();
             output.AppendLine($"Equipment for {name} (Level {level}):");
 
             foreach (Slot slot in Enum.GetValues(typeof(Slot)))

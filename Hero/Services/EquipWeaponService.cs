@@ -5,7 +5,7 @@ namespace DungeonMaster.Services
 {
     public class EquipWeaponService
     {
-        public bool Equipping(Weapon weapon, string? validWeaponTypes, int level, Dictionary<Slot, Item?> equipment)
+        public static bool Equipping(Weapon weapon, string? validWeaponTypes, int level, Dictionary<Slot, Item?> equipment)
         {
             try
             {

@@ -10,7 +10,7 @@ class Program
         
 
         Hero archer = new Archer("Robin Hood");
-        Weapon commonBow = new Weapon("Common Bow", 1, Slot.Weapon, WeaponType.Bow, 10);
+        Weapon commonBow = new("Common Bow", 1, Slot.Weapon, WeaponType.Bow, 10);
         //Item commonBow = new Weapon("Common Bow", 1, Slot.Weapon, WeaponType.Bow, 10);
       
 
@@ -37,10 +37,10 @@ class Program
 
 
 
-        Armor headArmor = new Armor("Head Armor", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(10, 20, 30));
-        Armor headArmor2 = new Armor("Head Armor2", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(10, 20, 30));
-        Armor clothArmor = new Armor("Head Armor", 1, Slot.Head, ArmorType.Cloth, new HeroAttribute(10, 20, 30));
-        Armor legArmor = new Armor("Leg Armor", 1, Slot.Legs, ArmorType.Leather, new HeroAttribute(10, 20, 30));
+        Armor headArmor = new("Head Armor", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(10, 20, 30));
+        Armor headArmor2 = new("Head Armor2", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(10, 20, 30));
+        Armor clothArmor = new("Head Armor", 1, Slot.Head, ArmorType.Cloth, new HeroAttribute(10, 20, 30));
+        Armor legArmor = new("Leg Armor", 1, Slot.Legs, ArmorType.Leather, new HeroAttribute(10, 20, 30));
 
 
         archer.EquipArmor(headArmor);

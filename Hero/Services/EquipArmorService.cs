@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
 using DungeonMaster.Equipment;
 
 namespace DungeonMaster.Services
 {
     public class EquipArmorService
     {
-        public bool Equipping(Armor armor, string validArmorTypes, int level, Dictionary<Slot, Item?> equipment)
+        public static bool Equipping(Armor armor, string validArmorTypes, int level, Dictionary<Slot, Item?> equipment)
         {
             try
             {

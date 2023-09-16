@@ -6,10 +6,9 @@ namespace DungeonMaster.hero
 {
     public class Archer : Hero
     {
-        private readonly DisplayHeroService displayHeroService = new DisplayHeroService();
-        private readonly DisplayEquipmentService displayEquipmentService = new DisplayEquipmentService();
-        private readonly EquipWeaponService equipWeaponService = new EquipWeaponService();
-        private readonly EquipArmorService equipArmorService = new EquipArmorService();
+        private readonly DisplayHeroService displayHeroService = new();
+        private readonly DisplayEquipmentService displayEquipmentService = new();
+       
 
 
 
@@ -48,7 +47,7 @@ namespace DungeonMaster.hero
             int damage = Damage();
             HeroAttribute totalAttributes = TotalAttributes();
 
-            string heroInfo = displayHeroService.DisplayHeroInfo(Name, "Archer", Level, totalAttributes, damage);
+            string heroInfo = DisplayHeroService.DisplayHeroInfo(Name, "Archer", Level, totalAttributes, damage);
             Console.WriteLine(heroInfo);
         }
 
@@ -56,13 +55,13 @@ namespace DungeonMaster.hero
 
         public override void DisplayEquipment()
         {
-            string equipmentInfo = displayEquipmentService.DisplayEquipment(Name, Level, Equipment);
+            string equipmentInfo = DisplayEquipmentService.DisplayEquipment(Name, Level, Equipment);
             Console.WriteLine(equipmentInfo);
         }
 
         public override void EquipWeapon(Weapon weapon)
         {
-            bool equipSuccess = equipWeaponService.Equipping(weapon, ValidWeaponTypes, Level, Equipment);
+            bool equipSuccess = EquipWeaponService.Equipping(weapon, ValidWeaponTypes, Level, Equipment);
 
             if (equipSuccess)
             {
@@ -75,7 +74,7 @@ namespace DungeonMaster.hero
         public override void EquipArmor(Armor armor)
         {
             string validArmorTypes = ValidArmorTypes ?? string.Empty;
-            equipArmorService.Equipping(armor, validArmorTypes, Level, Equipment);
+            EquipArmorService.Equipping(armor, validArmorTypes, Level, Equipment);
             TotalAttributes();
         }
 
