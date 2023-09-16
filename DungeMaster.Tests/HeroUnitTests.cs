@@ -53,16 +53,18 @@ namespace DungenMaster.Tests
         public void CreatedWeapon_ShouldHaveCorrectNameRequiredLevelSlotWeaponTypeAndDamage()
         {
             string expectedName = "Common Bow";
+            int expectedRequiredLevel = 1;
 
 
 
             Hero archer = new Archer("Robin Hood");
-            Weapon commonBow = new(expectedName, 1, Slot.Weapon, WeaponType.Bow, 10);
+            Weapon commonBow = new(expectedName, expectedRequiredLevel, Slot.Weapon, WeaponType.Bow, 10);
             //Item commonBow = new Weapon("Common Bow", 1, Slot.Weapon, WeaponType.Bow, 10);
 
             archer.EquipWeapon(commonBow);
 
             Assert.Equal(expectedName, commonBow.Name);
+            Assert.Equal(expectedRequiredLevel, commonBow.RequiredLevel);
 
 
         }
