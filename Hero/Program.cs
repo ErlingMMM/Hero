@@ -11,6 +11,7 @@ class Program
 
         Hero archer = new Archer("Robin Hood");
         Weapon commonBow = new Weapon("Common Bow", 1, Slot.Weapon, WeaponType.Bow, 10);
+        //Item commonBow = new Weapon("Common Bow", 1, Slot.Weapon, WeaponType.Bow, 10);
       
 
 

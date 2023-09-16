@@ -22,6 +22,11 @@ namespace DungeonMaster.hero
             return Name;
         }
 
+        public HeroAttribute GetLevelAttributes()
+        {
+            return LevelAttributes;
+        }
+
         public abstract HeroAttribute LevelUp();
         public abstract void Display();
         public abstract void DisplayEquipment();

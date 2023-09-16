@@ -18,10 +18,10 @@ namespace DungenMaster.Tests
 
 
             Assert.Equal(expectedName, archer.GetName());
-            //Assert.AreEqual(expectedLevel, archer.Level);
-            /*Assert.AreEqual(expectedStrength, archer.LevelAttributes.Strength);
-            Assert.AreEqual(expectedDexterity, archer.LevelAttributes.Dexterity);
-            Assert.AreEqual(expectedIntelligence, archer.LevelAttributes.Intelligence);*/
+            Assert.Equal(expectedLevel, archer.Level);
+            Assert.Equal(expectedStrength, archer.GetLevelAttributes().Strength);
+            Assert.Equal(expectedDexterity, archer.GetLevelAttributes().Dexterity);
+            Assert.Equal(expectedIntelligence, archer.GetLevelAttributes().Intelligence);
 
         }
     }
