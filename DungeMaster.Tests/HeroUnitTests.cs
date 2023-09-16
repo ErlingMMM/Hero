@@ -1,3 +1,4 @@
+using DungeonMaster.Attributes;
 using DungeonMaster.Equipment;
 using DungeonMaster.hero;
 using Microsoft.VisualStudio.TestPlatform.Utilities;
@@ -71,6 +72,32 @@ namespace DungenMaster.Tests
             Assert.Equal(expectedSlot, commonBow.WeaponSlot);
             Assert.Equal(expectedWeaponType, commonBow.WeaponType);
             Assert.Equal(expectedDamage, commonBow.WeaponDamage);
+        }
+
+        //• When Armor is created, it needs to have the correct name, required level, slot, armor type, and armor attributes
+        [Fact]
+        public void CreatedArmor_ShouldHaveCorrectNameRequiredLevelSlotArmorTypeAndArmorAttributes()
+        {
+            string expectedName = "Leg Armor";
+            int expectedRequiredLevel = 2;
+            Slot expectedSlot = Slot.Legs;
+            ArmorType expectedArmorType = ArmorType.Leather;
+            HeroAttribute expectedAttributes = new(10, 20, 30);
+
+
+
+            Hero archer = new Archer("Robin Hood");
+            Armor legArmor = new(expectedName, expectedRequiredLevel, expectedSlot, expectedArmorType, expectedAttributes);
+
+
+            archer.EquipArmor(legArmor);
+
+
+            Assert.Equal(expectedName, legArmor.Name);
+            Assert.Equal(expectedRequiredLevel, legArmor.RequiredLevel);
+            Assert.Equal(expectedSlot, legArmor.ArmorSlot);
+            Assert.Equal(expectedArmorType, legArmor.ArmorType);
+            Assert.Equal(expectedAttributes, legArmor.ArmorAttribute);
         }
     }
 }
