@@ -74,7 +74,6 @@ namespace DungenMaster.Tests
             Assert.Equal(expectedDamage, commonBow.WeaponDamage);
         }
 
-        //• When Armor is created, it needs to have the correct name, required level, slot, armor type, and armor attributes
         [Fact]
         public void CreatedArmor_ShouldHaveCorrectNameRequiredLevelSlotArmorTypeAndArmorAttributes()
         {
