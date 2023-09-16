@@ -1,4 +1,6 @@
+using DungeonMaster.Equipment;
 using DungeonMaster.hero;
+using Microsoft.VisualStudio.TestPlatform.Utilities;
 using NUnit.Framework.Internal;
 
 namespace DungenMaster.Tests
@@ -44,5 +46,26 @@ namespace DungenMaster.Tests
             Assert.Equal(expectedIntelligence, archer.GetLevelAttributes().Intelligence);
 
         }
+
+
+
+        [Fact]
+        public void CreatedWeapon_ShouldHaveCorrectNameRequiredLevelSlotWeaponTypeAndDamage()
+        {
+            string expectedName = "Common Bow";
+
+
+
+            Hero archer = new Archer("Robin Hood");
+            Weapon commonBow = new(expectedName, 1, Slot.Weapon, WeaponType.Bow, 10);
+            //Item commonBow = new Weapon("Common Bow", 1, Slot.Weapon, WeaponType.Bow, 10);
+
+            archer.EquipWeapon(commonBow);
+
+            Assert.Equal(expectedName, commonBow.Name);
+
+
+        }
     }
 }
+
