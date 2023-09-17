@@ -1,11 +1,13 @@
 using DungeonMaster.Attributes;
 using DungeonMaster.Equipment;
-using DungeonMaster.hero;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
-using NUnit.Framework.Internal;
-using System.Text.RegularExpressions;
+using DungeonMaster.HeroNamespace;
+using DungeonMaster.Exceptions;
 
-namespace DungenMaster.Tests
+
+
+
+
+namespace DungeonMaster.Tests
 {
     public class HeroUnitTests
     {
@@ -256,8 +258,7 @@ namespace DungenMaster.Tests
         }
 
         [Fact]
-        // A Hero should be able to equip a Weapon, the appropriate exceptions should be thrown if invalid (level 
-        //requirement and type)
+      
         public void Heroes_ShouldBeAbleToEquipWeapon()
         {
             Archer legolas = new("Legolas");
@@ -267,6 +268,19 @@ namespace DungenMaster.Tests
             Weapon? expectedEquippedWeapon = legolas.EquippedWeapon;
 
             Assert.NotNull(expectedEquippedWeapon);
+        }
+
+        [Fact]
+        // A Hero should be able to equip a Weapon, the appropriate exceptions should be thrown if invalid (level 
+        //requirement and type)
+       
+        public void HeroWeaponEquip_ShouldThrowInvalidWeaponExceptionOnInvalidLevelRequirement()
+        {
+            Archer legolas = new("Legolas");
+            //default level for heroes are 1
+            int levelRequirement = 5;
+            Weapon oakReflexBow = new("Oak Reflex Bow", levelRequirement, Slot.Weapon, WeaponType.Bow, 10);
+            Assert.Throws<InvalidWeaponException>(() => legolas.EquipWeapon(oakReflexBow));
         }
     }
 }

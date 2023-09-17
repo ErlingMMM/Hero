@@ -1,6 +1,6 @@
 ﻿using DungeonMaster.Attributes;
 using DungeonMaster.Equipment;
-using DungeonMaster.hero;
+using DungeonMaster.HeroNamespace;
 
 
 class Program
@@ -52,5 +52,12 @@ class Program
 
         archer.Display(); 
         archer.DisplayEquipment();
+
+        Console.WriteLine("-------------------------------------------------------");
+
+        Archer legolas = new("Legolas");
+        int levelRequirement = 5;
+        Weapon oakReflexBow = new("Oak Reflex Bow", levelRequirement, Slot.Weapon, WeaponType.Bow, 10);
+        legolas.EquipWeapon(oakReflexBow);
     }
 }

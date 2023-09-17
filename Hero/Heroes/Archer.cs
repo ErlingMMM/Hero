@@ -2,7 +2,7 @@
 using DungeonMaster.Equipment;
 using DungeonMaster.Services;
 
-namespace DungeonMaster.hero
+namespace DungeonMaster.HeroNamespace
 {
     public class Archer : Hero
     {

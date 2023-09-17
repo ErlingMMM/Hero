@@ -1,5 +1,6 @@
 ﻿
 using DungeonMaster.Equipment;
+using DungeonMaster.Exceptions;
 
 namespace DungeonMaster.Services
 {

@@ -1,4 +1,5 @@
 ﻿
+namespace DungeonMaster.Exceptions;
 
 public class InvalidWeaponException : Exception
 {

@@ -1,10 +1,8 @@
 ﻿using DungeonMaster.Attributes;
 using DungeonMaster.Equipment;
-using DungeonMaster.Services;
-using System;
-using System.Collections.Generic;
 
-namespace DungeonMaster.hero
+
+namespace DungeonMaster.HeroNamespace
 {
     public abstract class Hero
     {
