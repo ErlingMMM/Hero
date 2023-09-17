@@ -2,6 +2,7 @@ using DungeonMaster.Attributes;
 using DungeonMaster.Equipment;
 using DungeonMaster.HeroNamespace;
 using DungeonMaster.Exceptions;
+using DungeonMaster.Services;
 
 
 
@@ -488,6 +489,43 @@ namespace DungeonMaster.Tests
             Assert.Equal(expectedDamage, legolas.Damage());
         }
 
+        [Fact]
+        public void Heroes_ShouldDisplayTheirStateCorrectly()
+        {
+
+            int initialDexterityAttributeArcher = 7;
+            int initialWeaponDamage = 1;
+
+            int expectedDamage = initialWeaponDamage * (1 + initialDexterityAttributeArcher / 100);
+
+            Archer legolas = new("Legolas");
+
+
+            string expectedState = "Name: Legolas" +
+                              "\nClass: Archer" +
+                              "\nLevel: 1" +
+                              "\nTotal Strength: 1" +
+                              "\nTotal Dexterity: 7" +
+                              "\nTotal Intelligence: 1" +
+                              $"\nDamage: {expectedDamage}" +
+                              "\n\n"; 
+
+
+            string actualState = DisplayHeroService.DisplayHeroInfo(legolas.GetName(), "Archer", legolas.Level, legolas.TotalAttributes(), legolas.Damage()).Replace("\r\n", "\n"); ;
+
+            Assert.Equal(expectedState, actualState);
+        }
+
+
+
+        //readme
+        //readme
+
+
+        /* Weapon oakReflexBow = new("Oak Reflex Bow", 1, Slot.Weapon, WeaponType.Bow, 10);
+          Armor headArmor = new("Head Armor", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(3, 3, 3));
+          legolas.EquipWeapon(oakReflexBow);
+          legolas.EquipArmor(headArmor);*/
     }
 }
 
