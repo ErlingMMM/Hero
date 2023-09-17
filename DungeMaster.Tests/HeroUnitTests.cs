@@ -499,7 +499,7 @@ namespace DungeonMaster.Tests
             int expectedDamage = initialWeaponDamage * (1 + initialDexterityAttributeArcher / 100);
 
             Archer legolas = new("Legolas");
-
+          
 
             string expectedState = "Name: Legolas" +
                               "\nClass: Archer" +
@@ -516,16 +516,43 @@ namespace DungeonMaster.Tests
             Assert.Equal(expectedState, actualState);
         }
 
+        [Fact]
+        public void Heroes_ShouldDisplayTheirEquipment()
+        {
+            Archer legolas = new("Legolas");
+            Weapon oakReflexBow = new("Oak Reflex Bow", 1, Slot.Weapon, WeaponType.Bow, 10);
+            Armor headArmor = new("Head Armor", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(3, 3, 3));
+            legolas.EquipWeapon(oakReflexBow);
+            legolas.EquipArmor(headArmor);
+
+            string expectedEquipmentDisplay = "Equipment for Legolas (Level 1):\n" +
+                                              "Slot: Weapon\n" +
+                                              "Type: Weapon\n" +
+                                              "Name: Oak Reflex Bow\n" +
+                                              "Required Level: 1\n\n" +
+                                              "Slot: Head\n" +
+                                              "Type: Head\n" +
+                                              "Name: Head Armor\n" +
+                                              "Required Level: 1\n\n";
+
+            string actualEquipmentDisplay = DisplayEquipmentService.DisplayEquipment(
+                legolas.GetName(),
+                legolas.Level,
+                legolas.Equipment
+            ).Replace("\r\n", "\n").Replace("\r", "\n");
+
+            Assert.Equal(expectedEquipmentDisplay, actualEquipmentDisplay);
+        }
+
+
+
+
 
 
         //readme
         //readme
 
 
-        /* Weapon oakReflexBow = new("Oak Reflex Bow", 1, Slot.Weapon, WeaponType.Bow, 10);
-          Armor headArmor = new("Head Armor", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(3, 3, 3));
-          legolas.EquipWeapon(oakReflexBow);
-          legolas.EquipArmor(headArmor);*/
     }
 }
 
