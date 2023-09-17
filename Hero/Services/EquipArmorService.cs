@@ -37,8 +37,7 @@ namespace DungeonMaster.Services
                     {
                         errorMessage += $" Invalid armor type: {armor.ArmorType}";
                     }
-                Console.WriteLine(errorMessage);
-                return false;
+                Console.WriteLine(errorMessage);  
                 throw new InvalidArmorException(errorMessage);
                 }
             }

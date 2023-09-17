@@ -208,7 +208,7 @@ namespace DungeonMaster.Tests
             string expectedName = "Leg Armor";
 
             Hero legolas = new Archer("Legolas");
-            Armor legArmor = new(expectedName, 2, Slot.Legs, ArmorType.Leather, new HeroAttribute(10, 20, 30));
+            Armor legArmor = new(expectedName, 1, Slot.Legs, ArmorType.Leather, new HeroAttribute(10, 20, 30));
             legolas.EquipArmor(legArmor);
             Assert.Equal(expectedName, legArmor.Name);
         }
@@ -219,6 +219,7 @@ namespace DungeonMaster.Tests
             int expectedRequiredLevel = 2;
 
             Hero legolas = new Archer("Legolas");
+            legolas.LevelUp();
             Armor legArmor = new("Leg Armor", expectedRequiredLevel, Slot.Legs, ArmorType.Leather, new HeroAttribute(10, 20, 30));
             legolas.EquipArmor(legArmor);
             Assert.Equal(expectedRequiredLevel, legArmor.RequiredLevel);
@@ -230,7 +231,7 @@ namespace DungeonMaster.Tests
             Slot expectedSlot = Slot.Legs;
 
             Hero legolas = new Archer("Legolas");
-            Armor legArmor = new("Leg Armor", 2, expectedSlot, ArmorType.Leather, new HeroAttribute(10, 20, 30));
+            Armor legArmor = new("Leg Armor", 1, expectedSlot, ArmorType.Leather, new HeroAttribute(10, 20, 30));
             legolas.EquipArmor(legArmor);
             Assert.Equal(expectedSlot, legArmor.ArmorSlot);
         }
@@ -241,7 +242,7 @@ namespace DungeonMaster.Tests
             ArmorType expectedArmorType = ArmorType.Leather;
 
             Hero legolas = new Archer("Legolas");
-            Armor legArmor = new("Leg Armor", 2, Slot.Legs, expectedArmorType, new HeroAttribute(10, 20, 30));
+            Armor legArmor = new("Leg Armor", 1, Slot.Legs, expectedArmorType, new HeroAttribute(10, 20, 30));
             legolas.EquipArmor(legArmor);
             Assert.Equal(expectedArmorType, legArmor.ArmorType);
         }
@@ -252,7 +253,7 @@ namespace DungeonMaster.Tests
             HeroAttribute expectedAttributes = new(10, 20, 30);
 
             Hero legolas = new Archer("Legolas");
-            Armor legArmor = new("Leg Armor", 2, Slot.Legs, ArmorType.Leather, expectedAttributes);
+            Armor legArmor = new("Leg Armor", 1, Slot.Legs, ArmorType.Leather, expectedAttributes);
             legolas.EquipArmor(legArmor);
             Assert.Equal(expectedAttributes, legArmor.ArmorAttribute);
         }
