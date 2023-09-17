@@ -1,4 +1,4 @@
-﻿using DungeonMaster.Attributes;
+﻿using System;
 
 namespace DungeonMaster.Attributes
 {
@@ -7,7 +7,6 @@ namespace DungeonMaster.Attributes
         public int Strength { get; set; }
         public int Dexterity { get; set; }
         public int Intelligence { get; set; }
-
 
         public HeroAttribute(int strength, int dexterity, int intelligence)
         {
@@ -22,5 +21,20 @@ namespace DungeonMaster.Attributes
             Dexterity += dexterityIncrease;
             Intelligence += intelligenceIncrease;
         }
+
+        //For testing if two instances of the same class are equal. 
+        public override bool Equals(object? obj)
+        {
+            return obj is HeroAttribute other &&
+                   Strength == other.Strength &&
+                   Dexterity == other.Dexterity &&
+                   Intelligence == other.Intelligence;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Strength, Dexterity, Intelligence);
+        }
+
     }
 }

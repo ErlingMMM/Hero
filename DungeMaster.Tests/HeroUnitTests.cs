@@ -330,5 +330,17 @@ namespace DungeonMaster.Tests
 
             Assert.Throws<InvalidArmorException>(() => legolas.EquipArmor(clothArmor));
         }
+
+        [Fact]
+        public void HeroTotalAttributes_ShouldBeEqualLevelAttributesWhenNoEquipmentIsAdded()
+        {
+
+            Archer legolas = new("Legolas");
+
+            HeroAttribute levelAttributes = new(1, 7, 1);
+            var totalAttributes = legolas.TotalAttributes();
+
+            Assert.Equal(levelAttributes, totalAttributes);
+        }
     }
 }
