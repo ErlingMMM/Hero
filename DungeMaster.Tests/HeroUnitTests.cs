@@ -359,7 +359,7 @@ namespace DungeonMaster.Tests
             Archer legolas = new("Legolas");
 
             Armor headArmor = new("Head Armor", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(5, 5, 5));
-           
+
             legolas.EquipArmor(headArmor);
 
             HeroAttribute expectedTotalAttributes = new(expectedStrengtArcher + 5, expectedDexterityArcher + 5, expectedIntelligenceArcher + 5);
@@ -412,6 +412,27 @@ namespace DungeonMaster.Tests
 
             Assert.Equal(expectedTotalAttributes, totalAttributes);
         }
+
+
+
+
+        [Fact]
+        public void HeroDamage_ShouldBeCalculatedCorrectlyWithNoWeaponEquipped()
+        {
+
+            //Default values level 1 for archer class
+            //Dexterity is the damage attribute for Archer class
+            int initialDexterityAttributeArcher = 7;
+            int initialWeaponDamage = 1;
+
+            int expectedDamage = initialWeaponDamage * (1 + initialDexterityAttributeArcher / 100);
+
+            Archer legolas = new("Legolas");
+
+
+            Assert.Equal(expectedDamage, legolas.Damage());
+        }
+
     }
 }
 
