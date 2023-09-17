@@ -275,13 +275,23 @@ namespace DungeonMaster.Tests
         {
            
             Archer legolas = new("Legolas");
+            //level is 1 by default
             int levelRequirement = 5;
             Weapon oakReflexBow = new("Oak Reflex Bow", levelRequirement, Slot.Weapon, WeaponType.Bow, 10);
 
             Assert.Throws<InvalidWeaponException>(() => legolas.EquipWeapon(oakReflexBow));
         }
 
+        [Fact]
+            
+        public void HeroWeaponEquip_ShouldThrowInvalidWeaponExceptionOnInvalidWeaponType()
+        {
 
+            Archer legolas = new("Legolas");
+            var weaponType = WeaponType.Wand;
+            Weapon oakReflexBow = new("Oak Reflex Bow", 1, Slot.Weapon, weaponType, 10);
 
+            Assert.Throws<InvalidWeaponException>(() => legolas.EquipWeapon(oakReflexBow));
+        }
     }
 }
