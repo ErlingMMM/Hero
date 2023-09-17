@@ -260,7 +260,7 @@ namespace DungeonMaster.Tests
 
 
         [Fact]
-      
+
         public void Heroes_ShouldBeAbleToEquipWeapon()
         {
             Archer legolas = new("Legolas");
@@ -271,11 +271,11 @@ namespace DungeonMaster.Tests
 
             Assert.NotNull(expectedEquippedWeapon);
         }
-        
+
         [Fact]
         public void HeroWeaponEquip_ShouldThrowInvalidWeaponExceptionOnInvalidLevelRequirement()
         {
-           
+
             Archer legolas = new("Legolas");
             //level is 1 by default
             int levelRequirement = 5;
@@ -285,7 +285,7 @@ namespace DungeonMaster.Tests
         }
 
         [Fact]
-            
+
         public void HeroWeaponEquip_ShouldThrowInvalidWeaponExceptionOnInvalidWeaponType()
         {
 
@@ -334,13 +334,47 @@ namespace DungeonMaster.Tests
         [Fact]
         public void HeroTotalAttributes_ShouldBeEqualLevelAttributesWhenNoEquipmentIsAdded()
         {
+            //Default values level 1 for archer class
+            int expectedStrengtArcher = 1;
+            int expectedDexterityArcher = 7;
+            int expectedIntelligenceArcher = 1;
 
             Archer legolas = new("Legolas");
 
-            HeroAttribute levelAttributes = new(1, 7, 1);
+            HeroAttribute levelAttributes = new(expectedStrengtArcher, expectedDexterityArcher, expectedIntelligenceArcher);
             var totalAttributes = legolas.TotalAttributes();
 
             Assert.Equal(levelAttributes, totalAttributes);
         }
+
+        [Fact]
+        public void HeroTotalAttributes_ShouldBeEqualLevelAttributesWhenTwoPiecesOfArmorIsAdded()
+        {
+
+            //Default values level 1 for archer class
+            int expectedStrengtArcher = 1;
+            int expectedDexterityArcher = 7;
+            int expectedIntelligenceArcher = 1;
+
+            Archer legolas = new("Legolas");
+
+            Armor headArmor = new("Head Armor", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(5, 5, 5));
+            Armor legArmor = new("Leg Armor", 1, Slot.Legs, ArmorType.Leather, new HeroAttribute(5, 5, 5));
+            legolas.EquipArmor(headArmor);
+            legolas.EquipArmor(legArmor);
+
+            HeroAttribute expectedTotalAttributes = new(expectedStrengtArcher + 10, expectedDexterityArcher + 10, expectedIntelligenceArcher + 10);
+            var totalAttributes = legolas.TotalAttributes();
+
+            Assert.Equal(expectedTotalAttributes, totalAttributes);
+        }
     }
 }
+
+
+
+
+
+
+
+
