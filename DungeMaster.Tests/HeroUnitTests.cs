@@ -348,6 +348,28 @@ namespace DungeonMaster.Tests
         }
 
         [Fact]
+        public void HeroTotalAttributes_ShouldBeEqualLevelAttributesWhenOnePieceOfArmorIsAdded()
+        {
+
+            //Default values level 1 for archer class
+            int expectedStrengtArcher = 1;
+            int expectedDexterityArcher = 7;
+            int expectedIntelligenceArcher = 1;
+
+            Archer legolas = new("Legolas");
+
+            Armor headArmor = new("Head Armor", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(5, 5, 5));
+           
+            legolas.EquipArmor(headArmor);
+
+            HeroAttribute expectedTotalAttributes = new(expectedStrengtArcher + 5, expectedDexterityArcher + 5, expectedIntelligenceArcher + 5);
+            var totalAttributes = legolas.TotalAttributes();
+
+            Assert.Equal(expectedTotalAttributes, totalAttributes);
+        }
+
+
+        [Fact]
         public void HeroTotalAttributes_ShouldBeEqualLevelAttributesWhenTwoPiecesOfArmorIsAdded()
         {
 
