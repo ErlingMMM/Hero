@@ -9,8 +9,7 @@ namespace DungeonMaster.Services
     {
         public static bool Equipping(Armor armor, string validArmorTypes, int level, Dictionary<Slot, Item?> equipment)
         {
-            try
-            {
+          
                 if (validArmorTypes.Split(',').Select(type => type.Trim()).Contains(armor.ArmorType.ToString()) && level >= armor.RequiredLevel)
                 {
                     Slot armorSlot = armor.ArmorSlot;
@@ -38,18 +37,15 @@ namespace DungeonMaster.Services
                     {
                         errorMessage += $" Invalid armor type: {armor.ArmorType}";
                     }
-
-                    throw new InvalidArmorException(errorMessage);
+                Console.WriteLine(errorMessage);
+                return false;
+                throw new InvalidArmorException(errorMessage);
                 }
             }
-            catch (InvalidArmorException ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-                return false;
-            }
+      
         }
     }
-}
+
 
 
 

@@ -59,5 +59,12 @@ class Program
         int levelRequirement = 5;
         Weapon oakReflexBow = new("Oak Reflex Bow", levelRequirement, Slot.Weapon, WeaponType.Bow, 10);
         legolas.EquipWeapon(oakReflexBow);
+
+        Console.WriteLine("-------------------------------------------------------");
+
+        Archer legolas2 = new("Legolas");
+        int levelRequirement2 = 5;
+        Weapon oakReflexBow2 = new("Oak Reflex Bow", levelRequirement2, Slot.Weapon, WeaponType.Bow, 10);
+        legolas2.EquipWeapon(oakReflexBow2);
     }
 }

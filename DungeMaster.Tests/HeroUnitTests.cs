@@ -257,6 +257,7 @@ namespace DungeonMaster.Tests
             Assert.Equal(expectedAttributes, legArmor.ArmorAttribute);
         }
 
+
         [Fact]
       
         public void Heroes_ShouldBeAbleToEquipWeapon()
@@ -292,6 +293,18 @@ namespace DungeonMaster.Tests
             Weapon oakReflexBow = new("Oak Reflex Bow", 1, Slot.Weapon, weaponType, 10);
 
             Assert.Throws<InvalidWeaponException>(() => legolas.EquipWeapon(oakReflexBow));
+        }
+
+        [Fact]
+
+        public void HeroArmorEquip_ShouldThrowInvalidArmorExceptionOnInvalidArmorType()
+        {
+
+            Archer legolas = new("Legolas");
+            var armorType = ArmorType.Cloth;
+            Armor clothArmor = new("Head Armor", 1, Slot.Head, armorType, new HeroAttribute(10, 20, 30));
+
+            Assert.Throws<InvalidArmorException>(() => legolas.EquipArmor(clothArmor));
         }
     }
 }
