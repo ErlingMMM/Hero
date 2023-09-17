@@ -12,6 +12,7 @@ namespace DungenMaster.Tests
         public void CreateHero_ShouldHaveCorrectName()
         {
             string expectedName = "Legolas";
+
             Hero legolas = new Archer(expectedName);
             Assert.Equal(expectedName, legolas.GetName());
         }
@@ -20,6 +21,7 @@ namespace DungenMaster.Tests
         public void CreateHero_ShouldHaveCorrectLevel()
         {
             int expectedLevel = 1;
+
             Hero legolas = new Archer("Legolas");
             Assert.Equal(expectedLevel, legolas.Level);
         }
@@ -28,6 +30,7 @@ namespace DungenMaster.Tests
         public void CreateHero_ShouldHaveCorrectStrength()
         {
             int expectedStrength = 1;
+
             Hero legolas = new Archer("Legolas");
             Assert.Equal(expectedStrength, legolas.GetLevelAttributes().Strength);
         }
@@ -36,6 +39,7 @@ namespace DungenMaster.Tests
         public void ArcherIncreaseLevel_ShouldHaveCorrectIncreasedLevelAttributes()
         {
             int expectedLevel = 2;
+
             Hero legolas = new Archer("Legolas");
             legolas.LevelUp();
             Assert.Equal(expectedLevel, legolas.Level);
@@ -45,6 +49,7 @@ namespace DungenMaster.Tests
         public void ArcherIncreaseLevel_ShouldHaveCorrectIncreasedStrength()
         {
             int expectedStrength = 2;
+
             Hero legolas = new Archer("Legolas");
             legolas.LevelUp();
             Assert.Equal(expectedStrength, legolas.GetLevelAttributes().Strength);
@@ -54,6 +59,7 @@ namespace DungenMaster.Tests
         public void ArcherIncreaseLevel_ShouldHaveCorrectIncreasedDexterity()
         {
             int expectedDexterity = 12;
+
             Hero legolas = new Archer("Legolas");
             legolas.LevelUp();
             Assert.Equal(expectedDexterity, legolas.GetLevelAttributes().Dexterity);
@@ -63,6 +69,7 @@ namespace DungenMaster.Tests
         public void ArcherIncreaseLevel_ShouldHaveCorrectIncreasedIntelligence()
         {
             int expectedIntelligence = 2;
+
             Hero legolas = new Archer("Legolas");
             legolas.LevelUp();
             Assert.Equal(expectedIntelligence, legolas.GetLevelAttributes().Intelligence);
@@ -74,6 +81,7 @@ namespace DungenMaster.Tests
         {
             int expectedDefaultStrength = 1;
             int expectedLevelUpStrengthIncrease = 1;
+
             Hero legolas = new Archer("Legolas");
             legolas.LevelUp();
             Assert.Equal(expectedDefaultStrength + expectedLevelUpStrengthIncrease, legolas.GetLevelAttributes().Strength);
@@ -84,6 +92,7 @@ namespace DungenMaster.Tests
         {
             int expectedDefaultDexterity = 7;
             int expectedLevelUpDexterityIncrease = 5;
+
             Hero legolas = new Archer("Legolas");
             legolas.LevelUp();
             Assert.Equal(expectedDefaultDexterity + expectedLevelUpDexterityIncrease, legolas.GetLevelAttributes().Dexterity);
@@ -94,6 +103,7 @@ namespace DungenMaster.Tests
         {
             int expectedDefaultIntelligence = 1;
             int expectedLevelUpIntelligenceIncrease = 1;
+
             Hero legolas = new Archer("Legolas");
             legolas.LevelUp();
             Assert.Equal(expectedDefaultIntelligence + expectedLevelUpIntelligenceIncrease, legolas.GetLevelAttributes().Intelligence);
@@ -102,9 +112,43 @@ namespace DungenMaster.Tests
 
 
         [Fact]
+        public void HeroAttribute_ShouldIncrementStrengthCorrectly()
+        {
+            int expectedStrength = 1 + 2;
+
+            HeroAttribute attributes = new(1, 0, 0);
+            attributes.Increase(2, 0, 0);
+            Assert.Equal(expectedStrength, attributes.Strength);
+        }
+
+        [Fact]
+        public void HeroAttribute_ShouldIncrementDexterityCorrectly()
+        {
+            int expectedDexterity = 1 + 2;
+
+            HeroAttribute attributes = new(0, 1, 0);
+            attributes.Increase(0, 2, 0);
+            Assert.Equal(expectedDexterity, attributes.Dexterity);
+        }
+
+        [Fact]
+        public void HeroAttribute_ShouldIncrementIntelligenceCorrectly()
+        {
+            int expectedIntelligence = 1 + 2;
+
+            HeroAttribute attributes = new(0, 0, 1);
+            attributes.Increase(0, 0, 2);
+            Assert.Equal(expectedIntelligence, attributes.Intelligence);
+        }
+
+
+
+
+        [Fact]
         public void CreatedWeapon_ShouldHaveCorrectName()
         {
             string expectedName = "Oak Reflex Bow";
+
             Hero legolas = new Archer("Legolas");
             Weapon oakReflexBow = new(expectedName, 1, Slot.Weapon, WeaponType.Bow, 10);
             legolas.EquipWeapon(oakReflexBow);
@@ -115,6 +159,7 @@ namespace DungenMaster.Tests
         public void CreatedWeapon_ShouldHaveCorrectRequiredLevel()
         {
             int expectedRequiredLevel = 1;
+
             Hero legolas = new Archer("Legolas");
             Weapon oakReflexBow = new("Oak Reflex Bow", expectedRequiredLevel, Slot.Weapon, WeaponType.Bow, 10);
             legolas.EquipWeapon(oakReflexBow);
@@ -125,6 +170,7 @@ namespace DungenMaster.Tests
         public void CreatedWeapon_ShouldHaveCorrectSlot()
         {
             Slot expectedSlot = Slot.Weapon;
+
             Hero legolas = new Archer("Legolas");
             Weapon oakReflexBow = new("Oak Reflex Bow", 1, expectedSlot, WeaponType.Bow, 10);
             legolas.EquipWeapon(oakReflexBow);
@@ -135,6 +181,7 @@ namespace DungenMaster.Tests
         public void CreatedWeapon_ShouldHaveCorrectWeaponType()
         {
             WeaponType expectedWeaponType = WeaponType.Bow;
+
             Hero legolas = new Archer("Legolas");
             Weapon oakReflexBow = new("Oak Reflex Bow", 1, Slot.Weapon, expectedWeaponType, 10);
             legolas.EquipWeapon(oakReflexBow);
@@ -145,6 +192,7 @@ namespace DungenMaster.Tests
         public void CreatedWeapon_ShouldHaveCorrectDamage()
         {
             int expectedDamage = 10;
+
             Hero legolas = new Archer("Legolas");
             Weapon oakReflexBow = new("Oak Reflex Bow", 1, Slot.Weapon, WeaponType.Bow, expectedDamage);
             legolas.EquipWeapon(oakReflexBow);
@@ -155,6 +203,7 @@ namespace DungenMaster.Tests
         public void CreatedArmor_ShouldHaveCorrectName()
         {
             string expectedName = "Leg Armor";
+
             Hero legolas = new Archer("Legolas");
             Armor legArmor = new(expectedName, 2, Slot.Legs, ArmorType.Leather, new HeroAttribute(10, 20, 30));
             legolas.EquipArmor(legArmor);
@@ -165,6 +214,7 @@ namespace DungenMaster.Tests
         public void CreatedArmor_ShouldHaveCorrectRequiredLevel()
         {
             int expectedRequiredLevel = 2;
+
             Hero legolas = new Archer("Legolas");
             Armor legArmor = new("Leg Armor", expectedRequiredLevel, Slot.Legs, ArmorType.Leather, new HeroAttribute(10, 20, 30));
             legolas.EquipArmor(legArmor);
@@ -175,6 +225,7 @@ namespace DungenMaster.Tests
         public void CreatedArmor_ShouldHaveCorrectSlot()
         {
             Slot expectedSlot = Slot.Legs;
+
             Hero legolas = new Archer("Legolas");
             Armor legArmor = new("Leg Armor", 2, expectedSlot, ArmorType.Leather, new HeroAttribute(10, 20, 30));
             legolas.EquipArmor(legArmor);
@@ -185,6 +236,7 @@ namespace DungenMaster.Tests
         public void CreatedArmor_ShouldHaveCorrectArmorType()
         {
             ArmorType expectedArmorType = ArmorType.Leather;
+
             Hero legolas = new Archer("Legolas");
             Armor legArmor = new("Leg Armor", 2, Slot.Legs, expectedArmorType, new HeroAttribute(10, 20, 30));
             legolas.EquipArmor(legArmor);
@@ -195,6 +247,7 @@ namespace DungenMaster.Tests
         public void CreatedArmor_ShouldHaveCorrectArmorAttributes()
         {
             HeroAttribute expectedAttributes = new(10, 20, 30);
+
             Hero legolas = new Archer("Legolas");
             Armor legArmor = new("Leg Armor", 2, Slot.Legs, ArmorType.Leather, expectedAttributes);
             legolas.EquipArmor(legArmor);
