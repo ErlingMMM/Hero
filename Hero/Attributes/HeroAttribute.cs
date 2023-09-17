@@ -31,6 +31,7 @@ namespace DungeonMaster.Attributes
                    Intelligence == other.Intelligence;
         }
 
+        // Overrides the default hash code to make sure the Equals method is consistent.
         public override int GetHashCode()
         {
             return HashCode.Combine(Strength, Dexterity, Intelligence);

@@ -332,7 +332,7 @@ namespace DungeonMaster.Tests
         }
 
         [Fact]
-        public void HeroTotalAttributes_ShouldBeEqualLevelAttributesWhenNoEquipmentIsAdded()
+        public void HeroTotalAttributes_ShouldBeCalculatedCorrectlyWhenNoEquipmentIsAdded()
         {
             //Default values level 1 for archer class
             int expectedStrengtArcher = 1;
@@ -348,7 +348,7 @@ namespace DungeonMaster.Tests
         }
 
         [Fact]
-        public void HeroTotalAttributes_ShouldBeEqualLevelAttributesWhenOnePieceOfArmorIsAdded()
+        public void HeroTotalAttributes_ShouldBeCalculatedCorrectlyWhenOnePieceOfArmorIsAdded()
         {
 
             //Default values level 1 for archer class
@@ -370,7 +370,7 @@ namespace DungeonMaster.Tests
 
 
         [Fact]
-        public void HeroTotalAttributes_ShouldBeEqualLevelAttributesWhenTwoPiecesOfArmorIsAdded()
+        public void HeroTotalAttributes_ShouldBeCalculatedCorrectlyWhenTwoPiecesOfArmorIsAdded()
         {
 
             //Default values level 1 for archer class
@@ -386,6 +386,28 @@ namespace DungeonMaster.Tests
             legolas.EquipArmor(legArmor);
 
             HeroAttribute expectedTotalAttributes = new(expectedStrengtArcher + 10, expectedDexterityArcher + 10, expectedIntelligenceArcher + 10);
+            var totalAttributes = legolas.TotalAttributes();
+
+            Assert.Equal(expectedTotalAttributes, totalAttributes);
+        }
+
+        [Fact]
+        public void HeroTotalAttributes_ShouldBeCalculatedCorrectlyWithAReplacedPieceOfArmor()
+        {
+
+            //Default values level 1 for archer class
+            int expectedStrengtArcher = 1;
+            int expectedDexterityArcher = 7;
+            int expectedIntelligenceArcher = 1;
+
+            Archer legolas = new("Legolas");
+
+            Armor headArmor = new("Head Armor", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(3, 3, 3));
+            Armor replacedHeadArmor = new("Head Armor", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(5, 5, 5));
+            legolas.EquipArmor(headArmor);
+            legolas.EquipArmor(replacedHeadArmor);
+
+            HeroAttribute expectedTotalAttributes = new(expectedStrengtArcher + 5, expectedDexterityArcher + 5, expectedIntelligenceArcher + 5);
             var totalAttributes = legolas.TotalAttributes();
 
             Assert.Equal(expectedTotalAttributes, totalAttributes);
