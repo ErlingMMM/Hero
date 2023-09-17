@@ -3,6 +3,7 @@ using DungeonMaster.Equipment;
 using DungeonMaster.hero;
 using Microsoft.VisualStudio.TestPlatform.Utilities;
 using NUnit.Framework.Internal;
+using System.Text.RegularExpressions;
 
 namespace DungenMaster.Tests
 {
@@ -145,7 +146,7 @@ namespace DungenMaster.Tests
 
 
         [Fact]
-        public void CreatedWeapon_ShouldHaveCorrectName()
+        public void EquippedWeapon_ShouldHaveCorrectName()
         {
             string expectedName = "Oak Reflex Bow";
 
@@ -156,7 +157,7 @@ namespace DungenMaster.Tests
         }
 
         [Fact]
-        public void CreatedWeapon_ShouldHaveCorrectRequiredLevel()
+        public void EquippedWeapon_ShouldHaveCorrectRequiredLevel()
         {
             int expectedRequiredLevel = 1;
 
@@ -167,7 +168,7 @@ namespace DungenMaster.Tests
         }
 
         [Fact]
-        public void CreatedWeapon_ShouldHaveCorrectSlot()
+        public void EquippedWeapon_ShouldHaveCorrectSlot()
         {
             Slot expectedSlot = Slot.Weapon;
 
@@ -178,7 +179,7 @@ namespace DungenMaster.Tests
         }
 
         [Fact]
-        public void CreatedWeapon_ShouldHaveCorrectWeaponType()
+        public void EquippedWeapon_ShouldHaveCorrectWeaponType()
         {
             WeaponType expectedWeaponType = WeaponType.Bow;
 
@@ -189,7 +190,7 @@ namespace DungenMaster.Tests
         }
 
         [Fact]
-        public void CreatedWeapon_ShouldHaveCorrectDamage()
+        public void EquippedWeapon_ShouldHaveCorrectDamage()
         {
             int expectedDamage = 10;
 
@@ -200,7 +201,7 @@ namespace DungenMaster.Tests
         }
 
         [Fact]
-        public void CreatedArmor_ShouldHaveCorrectName()
+        public void EquippedArmor_ShouldHaveCorrectName()
         {
             string expectedName = "Leg Armor";
 
@@ -211,7 +212,7 @@ namespace DungenMaster.Tests
         }
 
         [Fact]
-        public void CreatedArmor_ShouldHaveCorrectRequiredLevel()
+        public void EquippedArmor_ShouldHaveCorrectRequiredLevel()
         {
             int expectedRequiredLevel = 2;
 
@@ -222,7 +223,7 @@ namespace DungenMaster.Tests
         }
 
         [Fact]
-        public void CreatedArmor_ShouldHaveCorrectSlot()
+        public void EquippedArmor_ShouldHaveCorrectSlot()
         {
             Slot expectedSlot = Slot.Legs;
 
@@ -233,7 +234,7 @@ namespace DungenMaster.Tests
         }
 
         [Fact]
-        public void CreatedArmor_ShouldHaveCorrectArmorType()
+        public void EquippedArmor_ShouldHaveCorrectArmorType()
         {
             ArmorType expectedArmorType = ArmorType.Leather;
 
@@ -244,7 +245,7 @@ namespace DungenMaster.Tests
         }
 
         [Fact]
-        public void CreatedArmor_ShouldHaveCorrectArmorAttributes()
+        public void EquippedArmor_ShouldHaveCorrectArmorAttributes()
         {
             HeroAttribute expectedAttributes = new(10, 20, 30);
 
@@ -252,6 +253,20 @@ namespace DungenMaster.Tests
             Armor legArmor = new("Leg Armor", 2, Slot.Legs, ArmorType.Leather, expectedAttributes);
             legolas.EquipArmor(legArmor);
             Assert.Equal(expectedAttributes, legArmor.ArmorAttribute);
+        }
+
+        [Fact]
+        // A Hero should be able to equip a Weapon, the appropriate exceptions should be thrown if invalid (level 
+        //requirement and type)
+        public void Heroes_ShouldBeAbleToEquipWeapon()
+        {
+            Archer legolas = new("Legolas");
+            Weapon oakReflexBow = new("Oak Reflex Bow", 1, Slot.Weapon, WeaponType.Bow, 10);
+            legolas.EquipWeapon(oakReflexBow);
+
+            Weapon? expectedEquippedWeapon = legolas.EquippedWeapon;
+
+            Assert.NotNull(expectedEquippedWeapon);
         }
     }
 }

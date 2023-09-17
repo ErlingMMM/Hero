@@ -18,6 +18,11 @@ namespace DungeonMaster.hero
 
         private Weapon? equippedWeapon;
 
+        public Weapon? EquippedWeapon
+        {
+            get { return equippedWeapon; }
+        }
+
 
 
 
