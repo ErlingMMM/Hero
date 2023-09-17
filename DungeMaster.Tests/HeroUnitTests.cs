@@ -433,6 +433,23 @@ namespace DungeonMaster.Tests
             Assert.Equal(expectedDamage, legolas.Damage());
         }
 
+        [Fact]
+        public void HeroDamage_ShouldBeCalculatedCorrectlyWithWeaponEquipped()
+        {
+
+           
+            int initialDexterityAttributeArcher = 7;
+            int weaponDamage = 10;
+
+            int expectedDamage = weaponDamage * (1 + initialDexterityAttributeArcher / 100);
+
+            Archer legolas = new("Legolas");
+            Weapon oakReflexBow = new("Oak Reflex Bow", 1, Slot.Weapon, WeaponType.Bow, weaponDamage);
+            legolas.EquipWeapon(oakReflexBow);
+
+            Assert.Equal(expectedDamage, legolas.Damage());
+        }
+
     }
 }
 
