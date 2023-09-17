@@ -309,13 +309,24 @@ namespace DungeonMaster.Tests
         }
 
         [Fact]
-
         public void HeroArmorEquip_ShouldThrowInvalidArmorExceptionOnInvalidArmorType()
         {
 
             Archer legolas = new("Legolas");
             var armorType = ArmorType.Cloth;
             Armor clothArmor = new("Head Armor", 1, Slot.Head, armorType, new HeroAttribute(10, 20, 30));
+
+            Assert.Throws<InvalidArmorException>(() => legolas.EquipArmor(clothArmor));
+        }
+
+        [Fact]
+        public void HeroArmorEquip_ShouldThrowInvalidArmorExceptionOnInvalidLevelRequirement()
+        {
+
+            Archer legolas = new("Legolas");
+            int levelRequirement = 5;
+
+            Armor clothArmor = new("Head Armor", levelRequirement, Slot.Head, ArmorType.Mail, new HeroAttribute(10, 20, 30));
 
             Assert.Throws<InvalidArmorException>(() => legolas.EquipArmor(clothArmor));
         }
