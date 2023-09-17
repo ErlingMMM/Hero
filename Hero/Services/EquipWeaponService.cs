@@ -8,8 +8,7 @@ namespace DungeonMaster.Services
     {
         public static bool Equipping(Weapon weapon, string? validWeaponTypes, int level, Dictionary<Slot, Item?> equipment)
         {
-            try
-            {
+          
 
                 if (validWeaponTypes?.Split(',').Select(type => type.Trim()).Contains(weapon.WeaponType.ToString()) == true && level >= weapon.RequiredLevel)
                 {
@@ -22,6 +21,7 @@ namespace DungeonMaster.Services
                     string errorMessage = "Cannot equip this weapon.";
 
                     if (level < weapon.RequiredLevel)
+
                     {
                         errorMessage += $" Required level: {weapon.RequiredLevel}";
                     }
@@ -29,16 +29,13 @@ namespace DungeonMaster.Services
                     {
                         errorMessage += $" Invalid weapon type: {weapon.WeaponType}";
                     }
-
-                    throw new InvalidWeaponException(errorMessage);
+                Console.WriteLine(errorMessage);
+                throw new InvalidWeaponException(errorMessage);
+                
                 }
             }
-            catch (InvalidWeaponException ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-                return false;
-            }
+        
         }
 
     }
-}
+

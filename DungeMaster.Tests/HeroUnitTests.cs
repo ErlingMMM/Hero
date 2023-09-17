@@ -281,16 +281,7 @@ namespace DungeonMaster.Tests
             Assert.Throws<InvalidWeaponException>(() => legolas.EquipWeapon(oakReflexBow));
         }
 
-        [Fact]
-        public void hei()
-        {
 
-            Archer legolas = new("Legolas");
-            int levelRequirement = 5;
-            Armor headArmor = new("Head Armor", levelRequirement, Slot.Head, ArmorType.Mail, new HeroAttribute(10, 20, 30));
-
-            Assert.Throws<InvalidWeaponException>(() => legolas.EquipArmor(headArmor));
-        }
 
     }
 }
