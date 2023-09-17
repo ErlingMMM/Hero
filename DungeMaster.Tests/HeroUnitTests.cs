@@ -269,18 +269,28 @@ namespace DungeonMaster.Tests
 
             Assert.NotNull(expectedEquippedWeapon);
         }
-
+        
         [Fact]
-        // A Hero should be able to equip a Weapon, the appropriate exceptions should be thrown if invalid (level 
-        //requirement and type)
-       
         public void HeroWeaponEquip_ShouldThrowInvalidWeaponExceptionOnInvalidLevelRequirement()
         {
+           
             Archer legolas = new("Legolas");
-            //default level for heroes are 1
             int levelRequirement = 5;
             Weapon oakReflexBow = new("Oak Reflex Bow", levelRequirement, Slot.Weapon, WeaponType.Bow, 10);
+
             Assert.Throws<InvalidWeaponException>(() => legolas.EquipWeapon(oakReflexBow));
         }
+
+        [Fact]
+        public void hei()
+        {
+
+            Archer legolas = new("Legolas");
+            int levelRequirement = 5;
+            Armor headArmor = new("Head Armor", levelRequirement, Slot.Head, ArmorType.Mail, new HeroAttribute(10, 20, 30));
+
+            Assert.Throws<InvalidWeaponException>(() => legolas.EquipArmor(headArmor));
+        }
+
     }
 }
