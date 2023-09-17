@@ -469,6 +469,25 @@ namespace DungeonMaster.Tests
             Assert.Equal(expectedDamage, legolas.Damage());
         }
 
+        [Fact]
+        public void HeroDamage_ShouldBeCalculatedCorrectlyWithReplacedEquippedWeaponAndEquippedArmor()
+        {
+
+
+            int initialDexterityAttributeArcher = 7;
+            int weaponDamage = 10;
+
+            int expectedDamage = weaponDamage * (1 + initialDexterityAttributeArcher / 100);
+
+            Archer legolas = new("Legolas");
+            Weapon oakReflexBow = new("Oak Reflex Bow", 1, Slot.Weapon, WeaponType.Bow, weaponDamage);
+            Armor headArmor = new("Head Armor", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(3, 3, 3));
+            legolas.EquipWeapon(oakReflexBow);
+            legolas.EquipArmor(headArmor);
+
+            Assert.Equal(expectedDamage, legolas.Damage());
+        }
+
     }
 }
 
