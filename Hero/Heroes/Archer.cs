@@ -23,6 +23,12 @@ namespace DungeonMaster.HeroNamespace
             get { return equippedWeapon; }
         }
 
+        private Armor? equippedArmor;
+
+        public Armor? EquippedArmor
+        {
+            get { return equippedArmor; }
+        }
 
 
 
@@ -79,8 +85,14 @@ namespace DungeonMaster.HeroNamespace
         public override void EquipArmor(Armor armor)
         {
             string validArmorTypes = ValidArmorTypes ?? string.Empty;
-            EquipArmorService.Equipping(armor, validArmorTypes, Level, Equipment);
-            TotalAttributes();
+            bool equipSuccess = EquipArmorService.Equipping(armor, validArmorTypes, Level, Equipment);
+
+            if (equipSuccess)
+            {
+               equippedArmor = armor;
+                TotalAttributes();
+            }
+           
         }
 
 

@@ -296,6 +296,18 @@ namespace DungeonMaster.Tests
         }
 
         [Fact]
+        public void Heroes_ShouldBeAbleToEquipArmor()
+        {
+            Archer legolas = new("Legolas");
+            Armor clothArmor = new("Head Armor", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(10, 20, 30));
+            legolas.EquipArmor(clothArmor);
+
+            Armor? expectedEquippedArmor = legolas.EquippedArmor;
+
+            Assert.NotNull(expectedEquippedArmor);
+        }
+
+        [Fact]
 
         public void HeroArmorEquip_ShouldThrowInvalidArmorExceptionOnInvalidArmorType()
         {
