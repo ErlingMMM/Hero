@@ -4,12 +4,12 @@ using DungeonMaster.Services;
 
 namespace DungeonMaster.HeroNamespace
 {
-    public class Archer : Hero
+    public class Wizard : Hero
     {
-       
+      
         private const int StrengthLevelUp = 1;
-        private const int DexterityLevelUp = 5;
-        private const int IntelligenceLevelUp = 1;
+        private const int DexterityLevelUp = 1;
+        private const int IntelligenceLevelUp = 5;
 
         private Weapon? equippedWeapon;
 
@@ -27,13 +27,13 @@ namespace DungeonMaster.HeroNamespace
 
 
 
-        public Archer(string name) : base(name)
+        public Wizard(string name) : base(name)
 
         {
-           
-            LevelAttributes = new HeroAttribute(strength: 1, dexterity: 7, intelligence: 1);
-            ValidWeaponTypes = "Bow";
-            ValidArmorTypes = "Leather,Mail";
+
+            LevelAttributes = new HeroAttribute(strength: 1, dexterity: 1, intelligence: 8);
+            ValidWeaponTypes = "Staff,Wand";
+            ValidArmorTypes = "Cloth";
         }
 
 
@@ -52,8 +52,8 @@ namespace DungeonMaster.HeroNamespace
         {
             int damage = Damage();
             HeroAttribute totalAttributes = TotalAttributes();
-
-            string heroInfo = DisplayHeroService.DisplayHeroInfo(Name, "Archer", Level, totalAttributes, damage);
+            
+            string heroInfo = DisplayHeroService.DisplayHeroInfo(Name, "Wizard", Level, totalAttributes, damage);
             Console.WriteLine(heroInfo);
         }
 
@@ -84,11 +84,12 @@ namespace DungeonMaster.HeroNamespace
 
             if (equipSuccess)
             {
-               equippedArmor = armor;
+                equippedArmor = armor;
                 TotalAttributes();
             }
-           
+
         }
+
 
 
 
@@ -97,7 +98,7 @@ namespace DungeonMaster.HeroNamespace
         {
             HeroAttribute totalAttributes = TotalAttributes();
 
-            return DamageCalculator.CalculateDamage(equippedWeapon, totalAttributes.Dexterity);
+            return DamageCalculator.CalculateDamage(equippedWeapon, totalAttributes.Intelligence);
 
 
         }

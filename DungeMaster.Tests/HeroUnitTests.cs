@@ -423,10 +423,10 @@ namespace DungeonMaster.Tests
 
             //Default values level 1 for archer class
             //Dexterity is the damage attribute for Archer class
-            int initialDexterityAttributeArcher = 7;
+            int dexterityAttributeArcher = 7;
             int initialWeaponDamage = 1;
 
-            int expectedDamage = initialWeaponDamage * (1 + initialDexterityAttributeArcher / 100);
+            int expectedDamage = initialWeaponDamage * (1 + dexterityAttributeArcher / 100);
 
             Archer legolas = new("Legolas");
 
@@ -439,10 +439,10 @@ namespace DungeonMaster.Tests
         {
 
            
-            int initialDexterityAttributeArcher = 7;
+            int dexterityAttributeArcher = 7;
             int weaponDamage = 10;
 
-            int expectedDamage = weaponDamage * (1 + initialDexterityAttributeArcher / 100);
+            int expectedDamage = weaponDamage * (1 + dexterityAttributeArcher / 100);
 
             Archer legolas = new("Legolas");
             Weapon oakReflexBow = new("Oak Reflex Bow", 1, Slot.Weapon, WeaponType.Bow, weaponDamage);
@@ -456,10 +456,10 @@ namespace DungeonMaster.Tests
         {
 
 
-            int initialDexterityAttributeArcher = 7;
+            int dexterityAttributeArcher = 7;
             int weaponDamage = 10;
 
-            int expectedDamage = weaponDamage * (1 + initialDexterityAttributeArcher / 100);
+            int expectedDamage = weaponDamage * (1 + dexterityAttributeArcher / 100);
 
             Archer legolas = new("Legolas");
             Weapon oakReflexBow = new("Oak Reflex Bow", 1, Slot.Weapon, WeaponType.Bow, weaponDamage);
@@ -476,13 +476,15 @@ namespace DungeonMaster.Tests
 
 
             int initialDexterityAttributeArcher = 7;
+            int armorDexterityBonus = 5;
+            int totalDexterity = initialDexterityAttributeArcher + armorDexterityBonus;
             int weaponDamage = 10;
 
-            int expectedDamage = weaponDamage * (1 + initialDexterityAttributeArcher / 100);
+            int expectedDamage  = (int) (weaponDamage * (1 + totalDexterity / 100.0));
 
             Archer legolas = new("Legolas");
             Weapon oakReflexBow = new("Oak Reflex Bow", 1, Slot.Weapon, WeaponType.Bow, weaponDamage);
-            Armor headArmor = new("Head Armor", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(3, 3, 3));
+            Armor headArmor = new("Head Armor", 1, Slot.Head, ArmorType.Mail, new HeroAttribute(3, armorDexterityBonus, 3));
             legolas.EquipWeapon(oakReflexBow);
             legolas.EquipArmor(headArmor);
 
