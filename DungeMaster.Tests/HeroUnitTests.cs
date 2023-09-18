@@ -32,7 +32,7 @@ namespace DungeonMaster.Tests
 
 
         [Fact]
-        public void CreateHero_ShouldHaveCorrectLevel()
+        public void CreateArcher_ShouldHaveCorrectLevel()
         {
             int expectedLevel = 1;
 
@@ -41,7 +41,16 @@ namespace DungeonMaster.Tests
         }
 
         [Fact]
-        public void CreateHero_ShouldHaveCorrectStrength()
+        public void CreateWizard_ShouldHaveCorrectLevel()
+        {
+            int expectedLevel = 1;
+
+            Hero gandalf = new Wizard("Gandalf");
+            Assert.Equal(expectedLevel, gandalf.Level);
+        }
+
+        [Fact]
+        public void CreateArcher_ShouldHaveCorrectStrength()
         {
             int expectedStrength = 1;
 
@@ -49,14 +58,37 @@ namespace DungeonMaster.Tests
             Assert.Equal(expectedStrength, legolas.GetLevelAttributes().Strength);
         }
 
+     
+
         [Fact]
-        public void ArcherIncreaseLevel_ShouldHaveCorrectIncreasedLevelAttributes()
+        public void CreateWizard_ShouldHaveCorrectStrength()
+        {
+            int expectedStrength = 1;
+
+            Hero gandalf = new Wizard("Gandalf");
+            Assert.Equal(expectedStrength, gandalf.GetLevelAttributes().Strength);
+        }
+
+ 
+
+        [Fact]
+        public void ArcherIncreaseLevel_ShouldHaveCorrectIncreasedLevel()
         {
             int expectedLevel = 2;
 
             Hero legolas = new Archer("Legolas");
             legolas.LevelUp();
             Assert.Equal(expectedLevel, legolas.Level);
+        }
+
+        [Fact]
+        public void WizardIncreaseLevel_ShouldHaveCorrectIncreasedLevel()
+        {
+            int expectedLevel = 2;
+
+            Hero gandalf = new Wizard("Gandalf");
+            gandalf.LevelUp();
+            Assert.Equal(expectedLevel, gandalf.Level);
         }
 
         [Fact]
@@ -70,6 +102,16 @@ namespace DungeonMaster.Tests
         }
 
         [Fact]
+        public void WizardIncreaseLevel_ShouldHaveCorrectIncreasedStrength()
+        {
+            int expectedStrength = 2;
+
+            Hero gandalf = new Wizard("Gandalf");
+            gandalf.LevelUp();
+            Assert.Equal(expectedStrength, gandalf.GetLevelAttributes().Strength);
+        }
+
+        [Fact]
         public void ArcherIncreaseLevel_ShouldHaveCorrectIncreasedDexterity()
         {
             int expectedDexterity = 12;
@@ -77,6 +119,16 @@ namespace DungeonMaster.Tests
             Hero legolas = new Archer("Legolas");
             legolas.LevelUp();
             Assert.Equal(expectedDexterity, legolas.GetLevelAttributes().Dexterity);
+        }
+
+        [Fact]
+        public void WizardIncreaseLevel_ShouldHaveCorrectIncreasedDexterity()
+        {
+            int expectedDexterity = 2;
+
+            Hero gandalf = new Wizard("Gandalf");
+            gandalf.LevelUp();
+            Assert.Equal(expectedDexterity, gandalf.GetLevelAttributes().Dexterity);
         }
 
         [Fact]
@@ -91,7 +143,17 @@ namespace DungeonMaster.Tests
 
 
         [Fact]
-        public void LevelUp_ShouldIncreaseStrengthCorrectly()
+        public void WizardIncreaseLevel_ShouldHaveCorrectIncreasedIntelligence()
+        {
+            int expectedIntelligence = 13;
+
+            Hero gandalf = new Wizard("Gandalf");
+            gandalf.LevelUp();
+            Assert.Equal(expectedIntelligence, gandalf.GetLevelAttributes().Intelligence);
+        }
+
+        [Fact]
+        public void ArcherLevelUp_ShouldIncreaseStrengthCorrectly()
         {
             int expectedDefaultStrength = 1;
             int expectedLevelUpStrengthIncrease = 1;
@@ -102,7 +164,7 @@ namespace DungeonMaster.Tests
         }
 
         [Fact]
-        public void LevelUp_ShouldIncreaseDexterityCorrectly()
+        public void ArcherLevelUp_ShouldIncreaseDexterityCorrectly()
         {
             int expectedDefaultDexterity = 7;
             int expectedLevelUpDexterityIncrease = 5;
@@ -113,7 +175,7 @@ namespace DungeonMaster.Tests
         }
 
         [Fact]
-        public void LevelUp_ShouldIncreaseIntelligenceCorrectly()
+        public void ArcherLevelUp_ShouldIncreaseIntelligenceCorrectly()
         {
             int expectedDefaultIntelligence = 1;
             int expectedLevelUpIntelligenceIncrease = 1;
@@ -121,6 +183,40 @@ namespace DungeonMaster.Tests
             Hero legolas = new Archer("Legolas");
             legolas.LevelUp();
             Assert.Equal(expectedDefaultIntelligence + expectedLevelUpIntelligenceIncrease, legolas.GetLevelAttributes().Intelligence);
+        }
+
+
+        [Fact]
+        public void WizardLevelUp_ShouldIncreaseStrengthCorrectly()
+        {
+            int expectedDefaultStrength = 1;
+            int expectedLevelUpStrengthIncrease = 1;
+
+            Hero gandalf = new Wizard("Gandalf");
+            gandalf.LevelUp();
+            Assert.Equal(expectedDefaultStrength + expectedLevelUpStrengthIncrease, gandalf.GetLevelAttributes().Strength);
+        }
+
+        [Fact]
+        public void WizardLevelUp_ShouldIncreaseDexterityCorrectly()
+        {
+            int expectedDefaultDexterity = 1; 
+            int expectedLevelUpDexterityIncrease = 1;
+
+            Hero gandalf = new Wizard("Gandalf");
+            gandalf.LevelUp();
+            Assert.Equal(expectedDefaultDexterity + expectedLevelUpDexterityIncrease, gandalf.GetLevelAttributes().Dexterity);
+        }
+
+        [Fact]
+        public void WizardLevelUp_ShouldIncreaseIntelligenceCorrectly()
+        {
+            int expectedDefaultIntelligence = 8;
+            int expectedLevelUpIntelligenceIncrease = 5;
+
+            Hero gandalf = new Wizard("Gandalf");
+            gandalf.LevelUp();
+            Assert.Equal(expectedDefaultIntelligence + expectedLevelUpIntelligenceIncrease, gandalf.GetLevelAttributes().Intelligence);
         }
 
 
@@ -567,6 +663,21 @@ namespace DungeonMaster.Tests
 
     }
 }
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
 
 
 
