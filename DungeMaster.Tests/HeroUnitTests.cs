@@ -220,6 +220,99 @@ namespace DungeonMaster.Tests
         }
 
 
+        [Fact]
+        public void CreateBarbarian_ShouldHaveCorrectName()
+        {
+            string expectedName = "Conan";
+
+            Hero conan = new Barbarian(expectedName);
+            Assert.Equal(expectedName, conan.GetName());
+        }
+
+        [Fact]
+        public void CreateBarbarian_ShouldHaveCorrectLevel()
+        {
+            int expectedLevel = 1;
+
+            Hero conan = new Barbarian("Conan");
+            Assert.Equal(expectedLevel, conan.Level);
+        }
+
+        [Fact]
+        public void BarbarianIncreaseLevel_ShouldHaveCorrectIncreasedLevel()
+        {
+            int expectedLevel = 2;
+
+            Hero conan = new Barbarian("Conan");
+            conan.LevelUp();
+            Assert.Equal(expectedLevel, conan.Level);
+        }
+
+        [Fact]
+        public void BarbarianIncreaseLevel_ShouldHaveCorrectIncreasedStrength()
+        {
+            int expectedStrength = 8;
+
+            Hero conan = new Barbarian("Conan");
+            conan.LevelUp();
+            Assert.Equal(expectedStrength, conan.GetLevelAttributes().Strength);
+        }
+
+        [Fact]
+        public void BarbarianIncreaseLevel_ShouldHaveCorrectIncreasedDexterity()
+        {
+            int expectedDexterity = 4;
+
+            Hero conan = new Barbarian("Conan");
+            conan.LevelUp();
+            Assert.Equal(expectedDexterity, conan.GetLevelAttributes().Dexterity);
+        }
+
+        [Fact]
+        public void BarbarianIncreaseLevel_ShouldHaveCorrectIncreasedIntelligence()
+        {
+            int expectedIntelligence = 2;
+
+            Hero conan = new Barbarian("Conan");
+            conan.LevelUp();
+            Assert.Equal(expectedIntelligence, conan.GetLevelAttributes().Intelligence);
+        }
+
+        [Fact]
+        public void BarbarianLevelUp_ShouldIncreaseStrengthCorrectly()
+        {
+            int expectedDefaultStrength = 5;
+            int expectedLevelUpStrengthIncrease = 3;
+
+            Hero conan = new Barbarian("Conan");
+            conan.LevelUp();
+            Assert.Equal(expectedDefaultStrength + expectedLevelUpStrengthIncrease, conan.GetLevelAttributes().Strength);
+        }
+
+        [Fact]
+        public void BarbarianLevelUp_ShouldIncreaseDexterityCorrectly()
+        {
+            int expectedDefaultDexterity = 2;
+            int expectedLevelUpDexterityIncrease = 2;
+
+            Hero conan = new Barbarian("Conan");
+            conan.LevelUp();
+            Assert.Equal(expectedDefaultDexterity + expectedLevelUpDexterityIncrease, conan.GetLevelAttributes().Dexterity);
+        }
+
+        [Fact]
+        public void BarbarianLevelUp_ShouldIncreaseIntelligenceCorrectly()
+        {
+            int expectedDefaultIntelligence = 1;
+            int expectedLevelUpIntelligenceIncrease = 1;
+
+            Hero conan = new Barbarian("Conan");
+            conan.LevelUp();
+            Assert.Equal(expectedDefaultIntelligence + expectedLevelUpIntelligenceIncrease, conan.GetLevelAttributes().Intelligence);
+        }
+
+
+
 
         [Fact]
         public void HeroAttribute_ShouldIncrementStrengthCorrectly()
