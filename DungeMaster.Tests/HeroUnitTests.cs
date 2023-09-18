@@ -13,13 +13,23 @@ namespace DungeonMaster.Tests
     public class HeroUnitTests
     {
         [Fact]
-        public void CreateHero_ShouldHaveCorrectName()
+        public void CreateArcher_ShouldHaveCorrectName()
         {
             string expectedName = "Legolas";
 
             Hero legolas = new Archer(expectedName);
             Assert.Equal(expectedName, legolas.GetName());
         }
+
+        [Fact]
+        public void CreateWizard_ShouldHaveCorrectName()
+        {
+            string expectedName = "Gandalf";
+
+            Hero gandalf = new Wizard(expectedName);
+            Assert.Equal(expectedName, gandalf.GetName());
+        }
+
 
         [Fact]
         public void CreateHero_ShouldHaveCorrectLevel()
