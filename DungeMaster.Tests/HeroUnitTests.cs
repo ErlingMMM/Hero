@@ -312,6 +312,98 @@ namespace DungeonMaster.Tests
         }
 
 
+        [Fact]
+        public void CreateSwashbuckler_ShouldHaveCorrectName()
+        {
+            string expectedName = "Zorro";
+
+            Hero zorro = new Swashbuckler(expectedName);
+            Assert.Equal(expectedName, zorro.GetName());
+        }
+
+        [Fact]
+        public void CreateSwashbuckler_ShouldHaveCorrectLevel()
+        {
+            int expectedLevel = 1;
+
+            Hero zorro = new Swashbuckler("Zorro");
+            Assert.Equal(expectedLevel, zorro.Level);
+        }
+
+        [Fact]
+        public void SwashbucklerIncreaseLevel_ShouldHaveCorrectIncreasedLevel()
+        {
+            int expectedLevel = 2;
+
+            Hero zorro = new Swashbuckler("Zorro");
+            zorro.LevelUp();
+            Assert.Equal(expectedLevel, zorro.Level);
+        }
+
+        [Fact]
+        public void SwashbucklerIncreaseLevel_ShouldHaveCorrectIncreasedStrength()
+        {
+            int expectedStrength = 3;
+
+            Hero zorro = new Swashbuckler("Zorro");
+            zorro.LevelUp();
+            Assert.Equal(expectedStrength, zorro.GetLevelAttributes().Strength);
+        }
+
+        [Fact]
+        public void SwashbucklerIncreaseLevel_ShouldHaveCorrectIncreasedDexterity()
+        {
+            int expectedDexterity = 10;
+
+            Hero zorro = new Swashbuckler("Zorro");
+            zorro.LevelUp();
+            Assert.Equal(expectedDexterity, zorro.GetLevelAttributes().Dexterity);
+        }
+
+        [Fact]
+        public void SwashbucklerIncreaseLevel_ShouldHaveCorrectIncreasedIntelligence()
+        {
+            int expectedIntelligence = 2;
+
+            Hero zorro = new Swashbuckler("Zorro");
+            zorro.LevelUp();
+            Assert.Equal(expectedIntelligence, zorro.GetLevelAttributes().Intelligence);
+        }
+
+        [Fact]
+        public void SwashbucklerLevelUp_ShouldIncreaseStrengthCorrectly()
+        {
+            int expectedDefaultStrength = 2;
+            int expectedLevelUpStrengthIncrease = 1;
+
+            Hero zorro = new Swashbuckler("Zorro");
+            zorro.LevelUp();
+            Assert.Equal(expectedDefaultStrength + expectedLevelUpStrengthIncrease, zorro.GetLevelAttributes().Strength);
+        }
+
+        [Fact]
+        public void SwashbucklerLevelUp_ShouldIncreaseDexterityCorrectly()
+        {
+            int expectedDefaultDexterity = 6;
+            int expectedLevelUpDexterityIncrease = 4;
+
+            Hero zorro = new Swashbuckler("Zorro");
+            zorro.LevelUp();
+            Assert.Equal(expectedDefaultDexterity + expectedLevelUpDexterityIncrease, zorro.GetLevelAttributes().Dexterity);
+        }
+
+        [Fact]
+        public void SwashbucklerLevelUp_ShouldIncreaseIntelligenceCorrectly()
+        {
+            int expectedDefaultIntelligence = 1;
+            int expectedLevelUpIntelligenceIncrease = 1;
+
+            Hero zorro = new Swashbuckler("Zorro");
+            zorro.LevelUp();
+            Assert.Equal(expectedDefaultIntelligence + expectedLevelUpIntelligenceIncrease, zorro.GetLevelAttributes().Intelligence);
+        }
+
+
 
 
         [Fact]
